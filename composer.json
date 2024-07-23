@@ -1,5 +1,5 @@
 {
-  "name": "secretstache/wordpress-starter",
+  "name": "secretstache/wordpress-seed-starter",
   "type": "wordpress-theme",
   "license": "MIT",
   "description": "WordPress starter theme based on the Sage framework",
@@ -41,9 +41,6 @@
     "post-create-project-cmd": [
       "Composer\\Config::disableProcessTimeout",
       "App\\ComposerScripts::postCreateProject"
-    ],
-    "setup-static-boilerplate": [
-      "App\\ComposerScripts::setupStaticBoilerplate"
     ]
   },
   "extra": {

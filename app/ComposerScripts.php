@@ -19,7 +19,7 @@ class ComposerScripts
         // Extract the last part of the path as the directory name
         $themePublicPathName = basename($projectDirectory); // e.g. ssm2023, amd2024
 
-        $themeName = $io->ask('<question>Theme Name:</question> ', 'Wordpress Starter');
+        $themeName = $io->ask('<question>Theme Name:</question> ', 'Seed Starter');
         $companyName = $io->ask('<question>Company Name:</question> ', 'Secret Stache Media');
 
         $agencyName = $io->ask('<question>Agency Name:</question> ', 'Secret Stache Media');
@@ -40,8 +40,6 @@ class ComposerScripts
         }
 
         $io->write('<comment>Setting up your project...</comment>');
-
-        self::setupStaticBoilerplate($event);
 
         self::updateReadme($io, $themeName, $companyName, $repositoryUrl);
 
@@ -70,28 +68,6 @@ class ComposerScripts
         }
     }
 
-    public static function setupStaticBoilerplate(Event $event)
-    {
-        $io = $event->getIO();
-        $io->write("<comment>Cloning the ssm-static-boilerplate repository...<comment>");
-
-        self::runCommand([
-            'git',
-            'clone',
-            'https://github.com/secretstache/ssm-static-boilerplate',
-            'static'
-        ], $io);
-
-        // Remove the .git directory
-        self::runCommand([
-            'rm',
-            '-rf',
-            './static/.git'
-        ], $io);
-
-        $io->write("<info>Complete.</info>");
-    }
-
     private static function initializeGitRepository(IOInterface $io)
     {
         $io->write("<comment>Init repository...<comment>");
@@ -114,8 +90,6 @@ class ComposerScripts
 
         self::runCommand(['git', 'branch', '-M', 'master'], $io);
 
-        self::runCommand(['git', 'checkout', '-b', 'static'], $io);
-
         self::runCommand(['git', 'checkout', 'master'], $io);
 
         $io->write("<info>Complete.</info>");
@@ -127,11 +101,7 @@ class ComposerScripts
 
         self::runCommand(['git', 'remote', 'add', 'origin', $repositoryUrl], $io);
 
-        // It's important to push the 'master' branch before switching away from it, especially if it's the first push.
         self::runCommand(['git', 'push', '-u', 'origin', 'master'], $io);
-
-        // After pushing 'master', you're now on 'static' and can push it as well.
-        self::runCommand(['git', 'push', '-u', 'origin', 'static'], $io);
 
         self::runCommand(['git', 'checkout', 'master'], $io);
 

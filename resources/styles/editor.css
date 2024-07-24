@@ -1,3 +1,7 @@
 @charset "utf-8";
 
 @import "@secretstache/wordpress-gutenberg/build/index.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

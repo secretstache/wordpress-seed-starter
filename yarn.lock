@@ -3193,10 +3193,10 @@
   dependencies:
     tslib "2.6.2"
 
-"@secretstache/wordpress-gutenberg@^0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@secretstache/wordpress-gutenberg/-/wordpress-gutenberg-0.2.5.tgz#07c162b6bb2d5749a8bd2ffdbe80112e78621cb7"
-  integrity sha512-WlcveVgljHQhTZtmFeOQABxSqUf1i/Td2rWH6Gu6/Gl7oa6bbrNiWy3c1jCm+wFVuR0NDmsqv8hhg6h1PXupcg==
+"@secretstache/wordpress-gutenberg@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@secretstache/wordpress-gutenberg/-/wordpress-gutenberg-0.3.0.tgz#360c9d3e2b75e038b528c5b05e5660b4b6a416fd"
+  integrity sha512-Coj3cguRZ1QfoqsjyT+u1j/DuLeUBJYexClGTSfbPVvd954fmAkFKk7vY2DvGvAcWY36/6ZBt2EgldgZ3jJ8rQ==
   dependencies:
     es-toolkit "^1.12.0"
     react-select "5.7.5"

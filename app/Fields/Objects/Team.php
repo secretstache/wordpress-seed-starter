@@ -23,6 +23,18 @@ class Team {
 				'preview_size'	=> 'medium',
 			])
 
+			->addTaxonomy('team_category', [
+				'label'         => 'Category',
+				'taxonomy'      => 'ssm_team_category',
+				'field_type'    => 'select',
+				'allow_null'    => 0,
+				'add_term'      => 1,
+				'save_terms'    => 1,
+				'load_terms'    => 1,
+				'return_format' => 'object',
+				'multiple'      => 0
+			])
+
             ->addText('team_job_title', [
 				'label'     => 'Job Title',
 			])

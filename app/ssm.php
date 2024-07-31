@@ -177,6 +177,32 @@ function flexible_content_label($title, $field, $layout, $i)
 };
 
 /**
+ * Set custom block categories & unset default categories
+ */
+add_filter('block_categories_all', function ($categories) {
+
+    foreach( get_default_block_categories() as $category ){
+        unset($categories[array_search($category['slug'], array_column($categories, 'slug'))]);
+    }
+
+    $final_categories = array_merge(
+        array(
+            array(
+                'slug'  => 'ssm-components',
+                'title' => 'Components'
+            ),
+            array(
+                'slug'  => 'ssm-templates',
+                'title' => 'Templates'
+            ),
+        ),
+        $categories
+    );
+
+    return $final_categories;
+});
+
+/**
  * Register Objects
  */
 foreach ( glob( get_template_directory( __FILE__ ) . '/app/Objects/*.php') as $file) {

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Logo Wall",
+  "name": "ssm/logo-wall",
+  "keywords": [
+    "logo", 
+    "wall", 
+    "lw"
+  ],
+  "category": "ssm-templates",
+  "example": {},
+  "icon": "images-alt",
+  "description": "",
+  "supports": {
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {}
+}

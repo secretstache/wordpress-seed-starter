@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Tabs",
+  "description": "",
+  "name": "ssm/tabs",
+  "keywords": [
+    "tabs"
+  ],
+  "category": "ssm-templates",
+  "example": {},
+  "icon": "table-col-after",
+  "attributes": {}
+}

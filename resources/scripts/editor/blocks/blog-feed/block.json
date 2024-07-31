@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Blog Feed",
+  "description": "",
+  "name": "ssm/blog-feed",
+  "keywords": [
+    "blog",
+    "feed",
+    "bf"
+  ],
+  "category": "ssm-templates",
+  "example": {},
+  "icon": "columns",
+  "supports": {
+    "spacing": {
+      "margin": true
+    }
+  },
+  "attributes": {},
+  "render": "index"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Team Members",
+  "description": "",
+  "name": "ssm/team-members",
+  "keywords": [
+    "team",
+    "members",
+    "tm"
+  ],
+  "category": "ssm-templates",
+  "example": {},
+  "icon": "businessman",
+  "supports": {
+    "spacing": {
+      "margin": true
+    }
+  },
+  "attributes": {},
+  "render": "index"
+}

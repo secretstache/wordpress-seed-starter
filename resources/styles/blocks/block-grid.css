@@ -1,0 +1,11 @@
+.wp-block-ssm-block-grid__inner .block-editor-block-list__layout .block-list-appender.wp-block {
+    @apply w-full
+}
+
+.wp-block-ssm-block-grid__inner .block-editor-block-list__layout .wp-block-image .components-resizable-box__container {
+    @apply !max-w-full !h-auto;
+}
+
+.wp-block-ssm-block-grid__inner .block-editor-block-list__layout .wp-block-image.is-resized {
+    @apply block max-w-full;
+}

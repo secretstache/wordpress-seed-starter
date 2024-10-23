@@ -1,0 +1,76 @@
+.wp-block-buttons,
+.wp-block-buttons.is-layout-flex {
+    @apply flex flex-wrap items-center gap-x-[1.875rem] gap-y-4;
+}
+
+.wp-block-buttons.is-vertical {
+    @apply flex-col items-start;
+}
+
+.wp-block-buttons.is-content-justification-left {
+    @apply justify-start;
+}
+
+.wp-block-buttons.is-content-justification-left.is-vertical {
+    @apply items-start;
+}
+
+.wp-block-buttons.is-content-justification-right {
+    @apply justify-end;
+}
+
+.wp-block-buttons.is-content-justification-right.is-vertical {
+    @apply items-end;
+}
+
+.wp-block-buttons.is-content-justification-center {
+    @apply justify-center;
+}
+
+.wp-block-buttons.is-content-justification-center.is-vertical {
+    @apply items-center;
+}
+
+.wp-block-buttons.is-content-justification-space-between {
+    @apply justify-between;
+}
+
+.wp-block-buttons.is-content-justification-space-between.is-vertical {
+    @apply items-stretch;
+}
+
+
+/* Primary */
+.wp-block-button .wp-block-button__link {
+    @apply px-3.5 py-2.5 rounded-md text-sm text-white shadow-sm font-semibold transition duration-300 bg-primary-500 hover:!bg-primary-600;
+}
+
+/* Primary Outline */
+.wp-block-button.is-style-primary-outline .wp-block-button__link {
+    @apply bg-transparent text-primary-500 border border-solid border-primary-500 hover:!bg-primary-600 hover:text-white hover:border-primary-600;
+}
+
+/* Secondary */
+.wp-block-button.is-style-secondary .wp-block-button__link {
+    @apply bg-secondary-500 hover:!bg-secondary-600;
+}
+
+/* Secondary Outline */
+.wp-block-button.is-style-secondary-outline .wp-block-button__link {
+    @apply bg-transparent text-secondary-500 border border-solid border-secondary-500 hover:!bg-secondary-600 hover:text-white hover:border-secondary-600;
+}
+
+/* Tertiary */
+.wp-block-button.is-style-tertiary .wp-block-button__link {
+    @apply bg-tertiary-500 hover:!bg-tertiary-600;
+}
+
+/* Tertiary Outline */
+.wp-block-button.is-style-tertiary-outline .wp-block-button__link {
+    @apply bg-transparent text-tertiary-500 border border-solid border-tertiary-500 hover:!bg-tertiary-600 hover:text-white hover:border-tertiary-600;
+}
+
+/* White */
+.wp-block-button.is-style-white .wp-block-button__link {
+    @apply bg-white text-black border-none hover:!bg-gray-200;
+}

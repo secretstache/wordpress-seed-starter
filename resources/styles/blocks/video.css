@@ -1,0 +1,21 @@
+.wp-block-video,
+.wp-block-embed {
+    @apply w-full max-w-full overflow-hidden;
+}
+
+.block-editor-block-list__block.wp-block-embed {
+    @apply m-0
+}
+
+.wp-block-video video,
+.wp-block-embed iframe {
+    @apply w-full aspect-video;
+}
+
+.wp-block-embed__wrapper {
+    @apply relative w-full h-0 overflow-hidden pt-[56.25%];
+}
+
+.wp-block-embed__wrapper iframe {
+    @apply absolute top-0 left-0 w-full h-full;
+}

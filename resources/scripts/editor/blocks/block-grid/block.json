@@ -4,6 +4,12 @@
   "title": "Block Grid",
   "description": "",
   "name": "ssm/block-grid",
+  "parent": [
+    "ssm/section-wrapper"
+  ],
+  "allowedBlocks": [
+    "ssm/block-grid-item"
+  ],
   "keywords": [
     "block",
     "grid",
@@ -14,8 +20,22 @@
   "icon": "grid-view",
   "supports": {
     "spacing": {
-      "margin": true
+      "margin": true,
+      "padding": true
     }
   },
-  "attributes": {}
+  "attributes": {
+    "columnsPerRow": {
+      "type": "number",
+      "default": 3
+    },
+    "layoutType": {
+      "type": "string",
+      "enum": [
+        "default",
+        "seamless"
+      ],
+      "default": "default"
+    }
+  }
 }

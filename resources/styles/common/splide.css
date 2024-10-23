@@ -1,0 +1,155 @@
+.splide__arrows {
+    display: flex;
+    gap: 12px;
+}
+
+.splide__arrow {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.splide__arrow::after {
+    display: block;
+    mask-image: url('data:image/svg+xml,%3Csvg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M19.998 0.986084C8.97205 0.988084 4.68751e-05 9.96008 -0.00195312 20.9881C-0.00195312 32.0161 8.97005 40.9881 20 40.9881C31.028 40.9861 40 32.0141 40 20.9881C40 9.96008 31.028 0.988084 19.998 0.986084ZM20 36.9881C11.176 36.9881 3.99805 29.8101 3.99805 20.9881C4.00005 12.1661 11.178 4.98808 19.998 4.98608C28.822 4.98808 36 12.1661 36 20.9881C36 29.8081 28.822 36.9861 20 36.9881Z" fill="%23E7E7E9"/%3E%3Cpath d="M20.024 12.978L12.014 20.988L20.024 28.996V22.988H28.012V18.988H20.024V12.978Z" fill="%23E7E7E9"/%3E%3C/svg%3E');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    transition: .3s;
+    width: 25px;
+    height: 25px;
+    content: "";
+    @apply bg-gray-400;
+}
+
+.splide__arrow:hover::after {
+    @apply bg-gray-500;
+}
+
+.splide__arrow svg,
+.splide__arrow img {
+    display: none;
+}
+
+.splide__arrow--next {
+    transform: rotate(180deg);
+}
+
+.splide__arrow:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Pagination */
+.splide__pagination {
+    bottom: -30px;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.splide__pagination__page {
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    padding: 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    @apply bg-gray-400;
+}
+
+.splide__pagination__page.is-active {
+    @apply bg-gray-500;
+    transform: scale(1.2);
+}
+
+.splide__pagination__page:hover {
+    @apply bg-gray-500;
+}
+
+.splide__pagination__page:focus {
+    @apply outline-none;
+}
+
+/* Primary Color */
+.splide-color-primary-500 .splide__arrow::after {
+    @apply bg-primary-500;
+}
+
+.splide-color-primary-500 .splide__arrow:hover::after {
+    @apply bg-primary-600;
+}
+
+.splide-color-primary-500 .splide__pagination__page {
+    @apply bg-primary-500;
+}
+
+.splide-color-primary-500 .splide__pagination__page.is-active {
+    @apply bg-primary-600;
+}
+
+.splide-color-primary-500 .splide__pagination__page:hover {
+    @apply bg-primary-600;
+}
+
+.splide-color-primary-500 .splide__pagination__page:focus {
+    @apply ring-primary-500;
+}
+
+/* Secondary Color */
+.splide-color-secondary-500 .splide__arrow::after {
+    @apply bg-secondary-500;
+}
+
+.splide-color-secondary-500 .splide__arrow:hover::after {
+    @apply bg-secondary-600;
+}
+
+.splide-color-secondary-500 .splide__pagination__page {
+    @apply bg-secondary-500;
+}
+
+.splide-color-secondary-500 .splide__pagination__page.is-active {
+    @apply bg-secondary-600;
+}
+
+.splide-color-secondary-500 .splide__pagination__page:hover {
+    @apply bg-secondary-600;
+}
+
+.splide-color-secondary-500 .splide__pagination__page:focus {
+    @apply ring-secondary-500;
+}
+
+/* Tertiary Color */
+.splide-color-tertiary-500 .splide__arrow::after {
+    @apply bg-tertiary-500;
+}
+
+.splide-color-tertiary-500 .splide__arrow:hover::after {
+    @apply bg-tertiary-600;
+}
+
+.splide-color-tertiary-500 .splide__pagination__page {
+    @apply bg-tertiary-500;
+}
+
+.splide-color-tertiary-500 .splide__pagination__page.is-active {
+    @apply bg-tertiary-600;
+}
+
+.splide-color-tertiary-500 .splide__pagination__page:hover {
+    @apply bg-tertiary-600;
+}
+
+.splide-color-tertiary-500 .splide__pagination__page:focus {
+    @apply ring-tertiary-500;
+}

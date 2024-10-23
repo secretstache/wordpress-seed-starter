@@ -1,46 +1,136 @@
-<footer class="site-footer">
+<footer class="site-footer" aria-labelledby="footer-heading">
 
-	<div class="grid-container">
+	<h2 id="footer-heading" class="sr-only">Footer</h2>
 
-		<div class="site-footer__top">
+	@if( ! empty( $social_networks ) )
 
-			<div class="site-footer__info">
+		<div class="site-footer-social-media bg-white border-t-[1px] border-gray-500">
 
-				<div class="site-footer__socials">
+			<div class="container py-8 flex flex-col items-center space-y-4">
 
-					<ul>
+				<h3 class="text-xl font-semibold leading-6 mb-3">Connect With Us</h3>
 
-						@if ( $twitter = $social_networks['twitter'] )
-							<li><a href="{!! $twitter !!}" target="_blank"><img src="@asset('images/twitter-icon.svg')" alt="Twitter"></a></li>
-						@endif
+				<div class="flex space-x-6 items-center">
 
-						@if ( $facebook = $social_networks['facebook'] )
-							<li><a href="{!! $facebook !!}" target="_blank"><img src="@asset('images/facebook-icon.svg')" alt="Facebook"></a></li>
-						@endif
+					@if ( $facebook = $social_networks['facebook'] )
 
-						@if ( $instagram = $social_networks['instagram'] )
-							<li><a href="{!! $instagram !!}" target="_blank"><img src="@asset('images/instagram-icon.svg')" alt="Instagram"></a></li>
-						@endif
+						<a href="{!! $facebook !!}"  target="_blank" class="text-gray-500 hover:text-gray-400 transition-all duration-300">
+							<span class="sr-only">Facebook</span>
+							<img class="editable-svg" src="@asset('images/facebook-icon.svg')" alt="Facebook">
+						</a>
 
-						@if ( $linkedin = $social_networks['linkedin'] )
-							<li><a href="{!! $linkedin !!}" target="_blank"><img src="@asset('images/linkedin-icon.svg')" alt="LinkedIn"></a></li>
-						@endif
+					@endif
 
-					</ul>
+					@if ( $instagram = $social_networks['instagram'] )
+
+						<a href="{!! $instagram !!}"  target="_blank" class="text-gray-500 hover:text-gray-400 transition-all duration-300">
+							<span class="sr-only">Instagram</span>
+							<img class="editable-svg" src="@asset('images/instagram-icon.svg')" alt="Instagram">
+						</a>
+
+					@endif
+
+					@if ( $twitter = $social_networks['twitter'] )
+
+						<a href="{!! $twitter !!}"  target="_blank" class="text-gray-500 hover:text-gray-400 transition-all duration-300">
+							<span class="sr-only">Twitter</span>
+							<img class="editable-svg" src="@asset('images/twitter-icon.svg')" alt="Twitter">
+						</a>
+
+					@endif
+
+					@if ( $youtube = $social_networks['youtube'] )
+
+						<a href="{!! $youtube !!}"  target="_blank" class="text-gray-500 hover:text-gray-400 transition-all duration-300">
+							<span class="sr-only">YouTube</span>
+							<img class="editable-svg" src="@asset('images/youtube-icon.svg')" alt="YouTube">
+						</a>
+
+					@endif
 
 				</div>
 
 			</div>
 
+		</div>
+
+	@endif
+
+	<div class="site-footer-main bg-primary-500">
+
+		<div class="container py-10">
+
 			@if ( is_array( $navigation['footer'] ) && !empty( $navigation['footer'] ) )
-				
-				<div class="site-footer__navigation">
 
-					@foreach ($navigation['footer'] as $key => $menu_column)
+				<div class="mt-16 grid grid-cols-2 md:grid-cols-{!! count( $navigation['footer'] ) + 1 ?? 5 !!} gap-8 xl:col-span-2 xl:mt-0">
 
-						@include( 'partials.navigation', ['menu_items' => $menu_column['nav_menu'] ] )
+					@foreach ( $navigation['footer'] as $key => $footer_menu )
+
+						<div>
+
+							@if( $footer_menu['headline'] )
+
+								@if ( $footer_menu['page_id'] )
+									<a href="{!! get_permalink( $footer_menu['page_id'] ) !!}">
+								@endif
+
+									<h4 class="text-xl font-semibold leading-6 text-white hover:text-secondary-500 transition-colors duration-300">{!! $footer_menu['headline'] !!}</h4>
+
+								@if ( $footer_menu['page_id'] )
+									</a>
+								@endif
+
+							@endif
+
+							@if( is_array( $footer_menu['nav_menu'] ) && !empty( $footer_menu['nav_menu'] ) )
+
+								<ul role="list" class="mt-2.5">
+
+									@foreach ( $footer_menu['nav_menu'] as $item )
+
+										<li class="{!! $item->classes ? ' ' . $item->classes : '' !!}">
+											<a href="{!! $item->url !!}" class="pointer-events-auto text-sm leading-7 text-white hover:text-secondary-300 transition-colors duration-300">{!! $item->label !!}</a>
+										</li>
+
+									@endforeach
+
+								</ul>
+
+							@endif
+
+						</div>
 
 					@endforeach
+
+					<div>
+
+						@if ( $footer['contact_page_id'] )
+
+							<a href="{!! get_permalink( $footer['contact_page_id'] ) !!}">
+								<h4 class="text-xl font-semibold leading-6 text-white hover:text-secondary-500 text-xl font-semibold leading-6 text-white hover:text-secondary-500 transition-colors duration-300">{!! get_the_title( $footer['contact_page_id'] ) !!}</h4>
+							</a>
+
+						@endif
+
+						<p class="text-sm font-semibold text-white mt-2.5">Main Headquarters</p>
+
+						@if ( $phone_number = $business_information['phone_number'] )
+
+							<p class="text-sm font-semibold text-white mt-2.5">Phone:</p>
+
+							<a href="tel:{!! $phone_number['number'] !!}" class="text-sm text-white hover:text-secondary-300 transition-colors duration-300">{!! $builder->getPhoneNumber( $phone_number ) !!}</a>
+
+						@endif
+
+						@if ( $email_address = $business_information['email_address'] )
+
+							<p class="text-sm font-semibold text-white mt-2.5">Email:</p>
+
+							<a href="mailto:{!! $email_address !!}" class="text-sm text-white hover:text-secondary-300 transition-colors duration-300">{!! $email_address !!}</a>
+
+						@endif
+
+					</div>
 
 				</div>
 
@@ -48,40 +138,16 @@
 
 		</div>
 
-		<div class="site-footer__bottom">
+	</div>
 
-			<div class="site-footer__logo">
+	@if ( $footer['copyright'] )
 
-				@if ( ( $brand_logo = $logo_assets['brand_logo'] ) && $brand_logo['url'] )
-								
-					<a href="{!! home_url() !!}">
-						<img src="{!! $brand_logo['url'] !!}" class="editable-svg" alt="{!! $brand_logo['alt'] ?: get_bloginfo('name') !!}">
-					</a>
+		<div class="site-footer-copyright bg-gray-100 py-2.5 flex items-center justify-center space-x-1 text-gray-900 text-xs leading-5">
 
-				@endif
-
-			</div>
-
-			<div class="site-footer__terms">
-
-				@if ( $footer['copyright'] )
-					{!! $footer['copyright'] !!}
-				@endif
-
-				@if ( has_nav_menu('legal_navigation') )
-
-					<nav class="site-footer__terms__navigation">
-
-						@include( 'partials.navigation', ['menu_items' => $navigation['primary'] ] )
-								
-					</nav>
-
-				@endif
-
-			</div>
+			<span>{!! $footer['copyright'] !!}</span>
 
 		</div>
 
-	</div>
+	@endif
 
 </footer>

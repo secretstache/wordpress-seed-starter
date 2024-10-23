@@ -1,0 +1,72 @@
+.wp-block-columns {
+    @apply flex flex-wrap gap-x-[var(--grid-column-gap)] gap-y-[var(--grid-row-gap)] mb-0;
+    align-items: unset;
+}
+
+.wp-block-columns.is-layout-flex {
+    align-items: unset;
+}
+
+.wp-block-columns.is-always-wrap {
+    @apply md:!flex-wrap;
+}
+
+.wp-block-column {
+    @apply flex-grow basis-0 min-w-0 break-words;
+}
+
+.wp-block-column > * + * {
+    @apply mt-12 mb-0;
+}
+
+.wp-block-column.is-vertically-aligned-top {
+    @apply self-start;
+}
+
+.wp-block-column.is-vertically-aligned-center {
+    @apply self-center;
+}
+
+.wp-block-column.is-vertically-aligned-bottom {
+    @apply self-end;
+}
+
+.wp-block-columns:not(.is-not-stacked-on-mobile) {
+    @apply max-md:!flex-wrap;
+}
+
+.wp-block-columns.are-vertically-aligned-top {
+    @apply items-start;
+}
+
+.wp-block-columns.are-vertically-aligned-center {
+    @apply items-center;
+}
+
+.wp-block-columns.are-vertically-aligned-bottom {
+    @apply items-end;
+}
+
+.wp-block-columns.has-background {
+    @apply p-[1.875rem];
+}
+
+@media (min-width: 768px) {
+    .wp-block-columns {
+        @apply flex-nowrap;
+    }
+
+    .wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column[style*="flex-basis"] {
+        @apply grow-0;
+    }
+}
+
+@media screen and (width <= 767px) {
+    .wp-block-column {
+        @apply !basis-full;
+    }
+
+    .wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column {
+        @apply !basis-full;
+    }
+}

@@ -1,11 +1,17 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-export const save = () => {
-    const blockProps = useBlockProps.save();
+import { getGridClass } from './index.js';
+
+export const save = ({ attributes }) => {
+    const { columnsPerRow } = attributes;
+
+    const blockProps = useBlockProps.save({
+        className: `grid gap-6 ${getGridClass(columnsPerRow)}`,
+    });
 
     return (
         <div {...blockProps}>
-            <p>Block Grid</p>
+            <InnerBlocks.Content />
         </div>
     );
 };

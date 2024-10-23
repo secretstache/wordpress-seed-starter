@@ -29,3 +29,6 @@ indent_size = 4
 
 [index.php]
 indent_size = 4
+
+[*.css]
+indent_size = 4

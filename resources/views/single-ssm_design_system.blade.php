@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	<h1 style="margin-bottom: 60px; margin-top: 150px; text-align:center; position:relative;">{!! get_the_title() !!}</h1>
+	<h1 class="relative text-center !my-16 !pb-0">{!! get_the_title() !!}</h1>
 
 	{!! the_content() !!}
 

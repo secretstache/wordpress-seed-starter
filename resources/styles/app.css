@@ -1,3 +1,33 @@
+@import "vendor.css";
+@import "common/config.css";
+@import "common/typography.css";
+@import "common/splide.css";
+@import "common/navigation.css";
+@import "common/default-margins.css";
+@import "common/facetwp.css";
+@import "common/lightgallery.css";
+@import "common/gravity.css";
+
+
+/* Core */
+@import "blocks/buttons.css";
+@import "blocks/list.css";
+@import "blocks/image.css";
+@import "blocks/video.css";
+@import "blocks/pullquote.css";
+@import "blocks/table.css";
+@import "blocks/separator.css";
+@import "blocks/details.css";
+
+/* Custom */
+@import "blocks/testimonials.css";
+@import "blocks/content-slider.css";
+@import "blocks/accordion.css";
+@import "blocks/tabs.css";
+@import "blocks/wp-blocks-settings.css";
+@import "blocks/section-wrapper.css";
+@import "blocks/cta.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

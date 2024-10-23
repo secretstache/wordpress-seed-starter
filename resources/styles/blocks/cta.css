@@ -1,0 +1,3 @@
+.wp-block-ssm-call-to-action .direction-bottom .wp-block-columns {
+    @apply flex-col;
+}

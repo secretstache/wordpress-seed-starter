@@ -1,5 +1,5 @@
 {{--
-  Template Name: Design System Archive Page
+  Template Name: Sandbox Archive Page
   Template Post Type: ssm_design_system
 --}}
 
@@ -8,29 +8,29 @@
 @section('content')
 
     <section class="content-block hero-unit">
-                    
-        <div class="grid-container">
 
-            <h1 class="headline">Design System</h1>
-            
+        <div class="container">
+
+            <h1 class="headline">Sandbox</h1>
+
         </div>
-        
+
     </section>
 
     <section class="content-block template-block-grid">
 
-        <div class="grid-container">
+        <div class="container">
 
             @if ( $content_above = get_field( 'design_system_archive_above', get_the_ID() ) )
                 <div class="module text-editor text-center">{!! $content_above !!}</div>
             @endif
 
             @if ( $types = get_field( 'design_system_archive_types', get_the_ID() ) )
-                
+
                 @foreach ($types as $type)
 
                     @php
-                                    
+
                         $args = [
                             'post_type'      => 'ssm_design_system',
                             'posts_per_page' => -1,
@@ -53,15 +53,15 @@
                     @endphp
 
                     @if ( $posts && !empty( $posts ) )
-                        
+
                         <header class="template-header align-center">
                             <h3 class="headline">{!! $type->name !!}</h3>
                         </header>
 
                         <div class="grid-item">
-            
+
                             @foreach ($posts as $post_id)
-                                        
+
                                 <a href="{!! get_permalink( $post_id ) !!}" class="card-item">
 
                                     <div class="description-block">
@@ -69,13 +69,13 @@
                                     </div>
 
                                 </a>
-                                        
+
                             @endforeach
-            
+
                         </div>
 
                     @endif
-                    
+
                 @endforeach
 
             @endif
@@ -83,7 +83,7 @@
             @if ( $content_below = get_field( 'design_system_archive_below', get_the_ID() ) )
                 <div class="module text-editor text-center">{!! $content_below !!}</div>
             @endif
-        
+
         </div>
 
     </section>

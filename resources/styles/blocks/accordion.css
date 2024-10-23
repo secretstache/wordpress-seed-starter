@@ -1,0 +1,59 @@
+.wp-block-ssm-accordion__item {
+	@apply overflow-hidden;
+}
+
+.wp-block-ssm-accordion__content {
+	@apply max-h-0 opacity-0 overflow-hidden invisible;
+	transition:
+		max-height var(--tr),
+		opacity var(--tr);
+}
+
+.wp-block-ssm-accordion__item.is-opened .wp-block-ssm-accordion__header {
+	padding-bottom: 32px;
+}
+
+.wp-block-ssm-accordion__item.is-opened .wp-block-ssm-accordion__content {
+	@apply max-h-full opacity-100 visible;
+}
+
+.wp-block-ssm-accordion.is-horizontal .wp-block-ssm-accordion__item .wp-block-ssm-accordion__header {
+	@apply p-6 pr-0;
+}
+
+.wp-block-ssm-accordion.is-horizontal .wp-block-ssm-accordion__item .wp-block-ssm-accordion__content {
+	@apply px-6 pt-0;
+}
+
+.wp-block-ssm-accordion.is-horizontal .wp-block-ssm-accordion__item.is-opened .wp-block-ssm-accordion__content {
+	@apply pb-6;
+}
+
+.wp-block-ssm-accordion__button:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.wp-block-ssm-accordion__item .accordion-icon.icon-open {
+	display: block;
+}
+
+.wp-block-ssm-accordion__item .accordion-icon.icon-close {
+	display: none;
+}
+
+.wp-block-ssm-accordion__item.is-opened .accordion-icon.icon-open {
+	display: none;
+}
+
+.wp-block-ssm-accordion__item.is-opened .accordion-icon.icon-close {
+	display: block;
+}
+
+.is-horizontal .wp-block-ssm-accordion__item {
+	@apply md:min-w-40 bg-gray-100;
+}
+
+.is-horizontal .wp-block-ssm-accordion__item.is-opened{
+	@apply md:min-w-[50%] md:max-w-[50%] bg-white;
+}

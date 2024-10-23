@@ -4,6 +4,9 @@
   "title": "Team Members",
   "description": "",
   "name": "ssm/team-members",
+  "parent": [
+    "ssm/section-wrapper"
+  ],
   "keywords": [
     "team",
     "members",
@@ -14,9 +17,24 @@
   "icon": "businessman",
   "supports": {
     "spacing": {
-      "margin": true
+      "margin": true,
+      "padding": true
     }
   },
-  "attributes": {},
+  "attributes": {
+    "queryType": {
+      "type": "string",
+      "enum": ["all", "curated"],
+      "default": "all"
+    },
+    "curatedPosts": {
+      "type": "array",
+      "default": []
+    },
+    "numberOfPosts": {
+      "type": "number",
+      "default": -1
+    }
+  },
   "render": "index"
 }

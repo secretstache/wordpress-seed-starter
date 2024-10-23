@@ -9,8 +9,8 @@
 @section('content')
 
     <section class="content-block template-free-form">
-                
-        <div class="grid-container">
+
+        <div class="container">
 
             <header class="template-header">
 
@@ -19,14 +19,14 @@
             </header>
 
             @if ( $data['legal_editor'] )
-                    
+
                 <div class="grid-x grid-margin-x has-1-cols">
 
                     <div class="cell medium-12">
 
                         <div class="inner">
 
-                            <div class="module text-editor">{!! $data['legal_editor'] !!}</div>            
+                            <div class="module text-editor">{!! $data['legal_editor'] !!}</div>
 
                         </div>
 

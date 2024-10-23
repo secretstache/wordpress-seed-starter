@@ -76,7 +76,7 @@ add_filter( 'display_post_states', function( $post_states, $post ) {
     }
 
     if( get_page_template_slug( $post ) == 'template-design-system-archive-page.blade.php' ) {
-        $post_states[] = 'Design System Archive Page';
+        $post_states[] = 'Sandbox Archive Page';
     }
 
     return $post_states;
@@ -96,13 +96,6 @@ add_action('init', function () {
 add_filter( 'ssm_disable_image_tags', function( $content ) {
     return false;
 }, 10 );
-
-/**
- * Remove Block Library Styles
- */
-add_action( 'wp_enqueue_scripts', function() {
-    wp_dequeue_style( 'wp-block-library' ); // WordPress core
-}, 100 );
 
 /**
  * Remove unnecessary item from Admin Bar Menu
@@ -195,12 +188,136 @@ add_filter('block_categories_all', function ($categories) {
                 'slug'  => 'ssm-templates',
                 'title' => 'Templates'
             ),
+            array(
+                'slug'  => 'ssm-design',
+                'title' => 'Design'
+            ),
         ),
         $categories
     );
 
     return $final_categories;
 });
+
+add_filter( 'admin_body_class', function ( $classes ) {
+
+    $is_active = true;
+
+    $google_fonts_api_key = get_field( 'google_fonts_api_key', 'options' );
+    $google_fonts = get_option('google_fonts');
+
+    if( $google_fonts_api_key && !$google_fonts ) {
+
+        $api_url = "https://www.googleapis.com/webfonts/v1/webfonts?key=" . $google_fonts_api_key;
+
+        if( ( $data = json_decode( file_get_contents( $api_url, false, stream_context_create( [ "ssl" => [ "verify_peer" => false, "verify_peer_name" => false ] ] ) ) ) ) && ( $fonts = $data->items ) ) {
+
+            $fetched_fonts = [];
+
+            foreach( $fonts as $font ) {
+
+                $fetched_fonts[ $font->family ] = [ 'font_family' => $font->family ];
+
+            }
+
+            add_option( 'google_fonts', $fetched_fonts );
+
+        } else {
+            $is_active = false;
+        }
+
+    }
+
+    $classes .= ( $is_active == false ) ? 'google-fonts-error' : '';
+
+    return $classes;
+
+}, 99 );
+
+add_filter('acf/load_field/name=google_font', function( $field ) {
+
+    $google_fonts = get_option('google_fonts');
+
+    if ( is_admin() && $google_fonts ) {
+
+        $field['choices'] = array();
+
+        foreach( $google_fonts as $font_id => $font ) {
+
+            $field['choices'][$font_id] = $font_id;
+
+        }
+
+    }
+
+    return $field;
+
+});
+
+add_action( 'wp_head', function() {
+
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
+	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+
+    if ( $global_fonts = get_field( 'global_fonts', 'options' ) ) {
+
+        foreach( $global_fonts as $font ) {
+
+            echo '<link href="https://fonts.googleapis.com/css2?family=' . $font['google_font'] . ':ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">';
+
+        }
+
+    }
+
+});
+
+add_filter('acf/fields/google_map/api', function($api){
+
+    $api['key'] = get_field( 'google_maps_api_key', 'options' ) ?: '';
+
+    return $api;
+
+});
+
+/**
+ * Templates without editor
+ *
+ */
+function ea_disable_editor( $id = false ) {
+
+	$excluded_templates = [
+        'template-design-system-archive-page.blade.php'
+    ];
+
+	if( empty( $id ) ) return false;
+
+	$template = get_page_template_slug( intval( $id ) );
+
+	return in_array( $template, $excluded_templates );
+}
+
+/**
+ * Disable Classic Editor by template
+ */
+add_action( 'admin_head', function() {
+
+	if( $_GET && isset( $_GET['post'] ) && ea_disable_editor( $_GET['post'] ) ) {
+		remove_post_type_support( 'page', 'editor' );
+	}
+
+} );
+
+/**
+ * Disable Gutenberg by template
+ */
+add_filter( 'use_block_editor_for_post_type', function( $can_edit, $post_type ) {
+
+	if( $_GET && isset( $_GET['post'] ) && ea_disable_editor( $_GET['post'] ) )
+		$can_edit = false;
+
+	return $can_edit;
+
+}, 10, 2 );
 
 /**
  * Register Objects
@@ -216,7 +333,7 @@ foreach( glob( get_template_directory( __FILE__ ) . '/app/Fields/*', GLOB_ONLYDI
 
 	$namespace = last( explode( "/", $dir ) ); // "Objects"
 
-	if( count(scandir($dir)) > 2 ) {
+	if ( count(scandir($dir)) > 2 ) {
 
 		foreach ( glob( $dir . '/*.php' ) as $file) {
 

@@ -15,8 +15,9 @@ add_action( 'init', function() {
         "supports" 			=> [ "title" ],
         "show_in_menu"      => "ssm",
         "has_archive"       => false,
-        "public"            => false,
+        "public"            => true,
         "show_ui"           => true,
+        "show_in_rest"      => true,
 
         "labels"            => [
             "all_items"     => "Team",
@@ -27,8 +28,8 @@ add_action( 'init', function() {
                 'title'          => 'Headshot',
                 'featured_image' => 'thumbnail',
                 'function'       => function() {
-                    echo ( $headshot = ( get_field( 'team_headshot', get_the_ID() ) ) ) ? '<img height="80" src="' . $headshot['url'] . '" />' : '<div class="custom-dash">—</div>' ;
-                }
+                    echo ( $headshot = ( get_field( 'team_headshot', get_the_ID() ) ) ) ? '<img height="80" src="' . $headshot['sizes']['thumbnail'] . '" />' : '<div class="custom-dash">—</div>' ;
+                },
             ],
             "title"
         ],
@@ -55,22 +56,3 @@ add_filter( 'manage_ssm_team_posts_columns', function( $columns ) {
     return $new_columns;
 
 }, 99, 1);
-
-/**
- * Register Taxonomy Category
- */
-add_action( 'init', function() {
-
-    register_extended_taxonomy( "ssm_team_category", "ssm_team", [
-
-        "hierarchical" => false
-
-    ], [
-
-        "singular"  => "Category",
-        "plural"    => "Categories",
-        "slug"      => "team-category"
-
-    ] );
-
-});

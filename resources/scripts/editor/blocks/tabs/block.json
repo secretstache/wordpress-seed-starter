@@ -4,11 +4,34 @@
   "title": "Tabs",
   "description": "",
   "name": "ssm/tabs",
+  "parent": [
+    "ssm/section-wrapper"
+  ],
   "keywords": [
     "tabs"
   ],
   "category": "ssm-templates",
   "example": {},
   "icon": "table-col-after",
-  "attributes": {}
+  "supports": {
+    "margin": true,
+    "padding": true
+  },
+  "attributes": {
+    "layoutType": {
+      "type": "string",
+      "enum": [
+        "vertical",
+        "horizontal"
+      ],
+      "default": "horizontal"
+    },
+    "tabs": {
+      "type": "array",
+      "default": []
+    },
+    "tabItemColor": {
+      "type": "object"
+    }
+  }
 }

@@ -21,7 +21,7 @@ class DesignSystemSettings {
 
             ->addTrueFalse('ds_require_auth', [
                 'label'		=> false,
-                'message'	=> 'Require authentication to view Design System',
+                'message'	=> 'Require authentication to view Sandbox',
                 'default_value' => 1
             ])
 

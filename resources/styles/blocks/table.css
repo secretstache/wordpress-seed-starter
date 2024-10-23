@@ -1,0 +1,37 @@
+.wp-block-table {
+    @apply block w-full overflow-auto; 
+}
+
+.wp-block-table table,
+.wp-block-table th,
+.wp-block-table td {
+    @apply border-collapse;
+}
+
+.wp-block-table table {
+    @apply w-full border-separate border-spacing-0 border-0;
+}
+
+.wp-block-table:not(.is-style-stripes) table td,
+.wp-block-table:not(.is-style-stripes) table th {
+    @apply align-top border-t-0 border-l-0 border-r-0 border-b border-solid border-b-gray-200 p-3;
+}
+
+.wp-block-table:not(.is-style-stripes) table tr td:first-child,
+.wp-block-table:not(.is-style-stripes) table tr th:first-child {
+    @apply border-l border-l-gray-200;
+}
+
+.wp-block-table:not(.is-style-stripes) table tr td:last-child,
+.wp-block-table:not(.is-style-stripes) table tr th:last-child {
+    @apply border-r border-r-gray-200;
+}
+
+.wp-block-table thead th {
+    @apply bg-primary-500 text-white font-bold text-lg;
+}
+
+.wp-block-table .wp-element-caption {
+    @apply text-sm my-3 text-gray-500;
+}
+

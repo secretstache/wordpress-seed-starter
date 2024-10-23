@@ -1,0 +1,9 @@
+.content > h1 {
+    @apply text-[30px] font-normal leading-normal font-sans pb-[10px] m-0 text-center;
+}
+
+@screen lg {
+    .content > h1 {
+        @apply leading-[105%];
+    }
+}

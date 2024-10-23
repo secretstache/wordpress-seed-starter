@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swapz');
+
+@layer base {
+
+    :root {
+        --content-width: 1240px;
+        --content-width-wide: 1440px;
+        --content-padding: 32px;
+        --grid-column-gap: 32px;
+        --grid-row-gap: 32px;
+
+        /* other */
+        --tr: 0.3s;
+
+        /* site header */
+        --site-header-z-index: 1045;
+        --site-header-logo-width:100px;
+
+        /* offcanvas */
+        --offcanvas-z-index: 1040;
+        --offcanvas-width: 100%;
+    }
+}
+
+.has-text-align-center {
+    @apply text-center;
+}
+
+.has-text-align-left {
+    @apply text-left;
+}
+
+.has-text-align-right {
+    @apply text-right;
+}
+
+.show {
+    display:block !important;
+}

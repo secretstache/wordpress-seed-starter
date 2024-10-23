@@ -103,7 +103,6 @@ class BrandSettings {
 			acf_add_local_field_group($businessInformation->build());
 		});
 
-
 		/**
 		 * Social Networks
 		 * @author Rich Staats <rich@secretstache.com>
@@ -112,36 +111,94 @@ class BrandSettings {
 		 */
 		$socialNetworks = new FieldsBuilder('social_networks', [
 			'title'			=> 'Social Networks',
-			'menu_order'	=>	10
+			'menu_order'	=>	7
 		]);
 
 		$socialNetworks
-
-			->addText('facebook', [
-				'label' 	=> 'Facebook',
-				'prepend' 	=> 'URL',
-			])
+	
+				->addText('facebook', [
+					'label' 	=> 'Facebook',
+					'prepend' 	=> 'URL',
+				])
 			
-			->addText('twitter', [
-				'label' 	=> 'Twitter',
-				'prepend' 	=> 'URL',
-			])
-			
-			->addText('linkedin', [
-				'label' 	=> 'Linkedin',
-				'prepend' 	=> 'URL',
-			])
-			
-			->addText('instagram', [
-				'label' 	=> 'Instagram',
-				'prepend' 	=> 'URL',
-			])
+				->addText('instagram', [
+					'label' 	=> 'Instagram',
+					'prepend' 	=> 'URL',
+				])
+				
+				->addText('twitter', [
+					'label' 	=> 'Twitter',
+					'prepend' 	=> 'URL',
+				])
+				
+				->addText('youtube', [
+					'label' 	=> 'YouTube',
+					'prepend' 	=> 'URL',
+				])
 			
 			->setLocation('options_page', '==', 'acf-options-brand-settings');
 
 		// Register Social Networks
 		add_action('acf/init', function() use ($socialNetworks) {
 			acf_add_local_field_group($socialNetworks->build());
+		});
+
+		/**
+		 * API Keys
+		 */
+		$apiKeys = new FieldsBuilder('api_keys', [
+			'title'			=> 'API Keys',
+			'menu_order'	=>	8
+		]);
+
+		$apiKeys
+
+			->addPassword('google_maps_api_key', [
+				'label' => 'Google Maps API Key'
+			])
+
+			->addPassword('google_fonts_api_key', [
+				'label' => 'Google Fonts API Key'
+			])
+
+			->setLocation('options_page', '==', 'acf-options-brand-settings');
+
+		// Register API Keys
+		add_action('acf/init', function() use ($apiKeys) {
+			acf_add_local_field_group($apiKeys->build());
+		});
+
+		/**
+		 * Global Settings
+		 */
+		$globalSettings = new FieldsBuilder('global_settings', [
+			'title'			=> 'Global Fonts',
+			'menu_order'	=>	10
+		]);
+
+		$globalSettings
+
+			->addRepeater('global_fonts', [
+				'label'         => false,
+				'layout'		=> 'block',
+				'collapsed'		=> 'google_font',
+				'button_label'	=> 'Add Font',
+				'acfe_repeater_stylised_button'	=> 1
+			])
+
+				->addSelect( 'google_font', [
+					'label'	=> false,
+					'ui'	=> 1,
+					'choices' => [],
+				] )
+
+			->endRepeater()
+
+			->setLocation('options_page', '==', 'acf-options-brand-settings');
+
+		// Register Global Settings
+		add_action('acf/init', function() use ($globalSettings) {
+			acf_add_local_field_group($globalSettings->build());
 		});
 
 		/**
@@ -156,6 +213,45 @@ class BrandSettings {
 		]);
 
 		$globalFooter
+
+			->addPostObject('contact_page_id', [
+				'label'        => 'Contact Page',
+				'post_type'    => ['page'],
+				'allow_null'   => 1,
+				'return_format' => 'id'
+			])
+
+			->addRepeater('footer_menus', [
+				'label'         => 'Menu Columns',
+				'layout'		=> 'block',
+				'min'			=> 1,
+				'max'			=> 5,
+				'button_label'	=> 'Add Column',
+			])
+
+				->addText('headline', [
+					'label'     => 'Headline',
+				])
+
+				->addPostObject('page_id', [
+					'label'        => 'Select a Page',
+					'post_type'    => ['page'],
+					'allow_null'   => 1,
+					'return_format' => 'id'
+				])
+
+				->addField('nav_menu', 'acfe_menus', [
+					'label' 		=> 'Select a Menu',
+					'field_type'	=> 'select',
+					'allow_null'	=> 1
+				])
+
+			->endRepeater()
+
+			->addField('menus_edit_message', 'message', [
+				'label'     => false,
+				'message'   => 'Edit or add new menus <a target="_blank" href="'. admin_url('nav-menus.php') .'">here.</a>',
+			])
 
 			->addWysiwyg('footer_copyright', [
 				'label'			=> 'Copyright',

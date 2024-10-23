@@ -3,9 +3,12 @@
   "apiVersion": 3,
   "title": "Call To Action",
   "name": "ssm/call-to-action",
+  "parent": [
+    "ssm/section-wrapper"
+  ],
   "keywords": [
-    "call", 
-    "cta", 
+    "call",
+    "cta",
     "action"
   ],
   "category": "ssm-templates",
@@ -18,5 +21,17 @@
       "padding": true
     }
   },
-  "attributes": {}
+  "attributes": {
+    "backgroundColor": {
+      "type": "object",
+      "default": {
+        "slug": "gray-100",
+        "color": "#f3f4f6"
+      }
+    },
+    "buttonPosition": {
+      "type": "string",
+      "default": "bottom"
+    }
+  }
 }

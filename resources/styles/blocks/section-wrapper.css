@@ -1,0 +1,11 @@
+.wp-block-ssm-section-wrapper__content {
+    .alignwide {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: var(--content-width-wide);
+    }
+
+    .alignfull {
+        max-width: 100%;
+    }
+}

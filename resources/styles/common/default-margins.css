@@ -1,0 +1,41 @@
+/* Section Wrapper */
+.wp-block-ssm-section-wrapper > .container > * + * {
+   @apply mt-9 mb-0;
+}
+
+/* Native Blocks */
+.wp-block-columns .wp-block-column > * + *,
+.wp-block-cover__inner-container > * + * {
+    @apply mt-5 mb-0;
+}
+
+/* Accordion */
+.wp-block-ssm-accordion__item .wp-block-ssm-accordion__inner > * + * {
+    @apply mt-5 mb-0;
+}
+
+/* Block Grid */
+.wp-block-ssm-block-grid-item .wp-block-ssm-block-grid__inner > * + * {
+    @apply mt-2 mb-0;
+}
+
+/* Split Content */
+.wp-block-ssm-split-content .wp-block-ssm-split-content__inner > * + *,
+.wp-block-ssm-split-content .block-editor-inner-blocks .block-editor-block-list__layout > * + * {
+    @apply mt-5 mb-0;
+}
+
+/* Call To Action */
+.wp-block-ssm-call-to-action .wp-block-ssm-call-to-action__inner > * + * {
+    @apply mt-5 mb-0;
+}
+
+/* Content Slider */
+.wp-block-ssm-slide .wp-block-ssm-slide__inner > * + * {
+    @apply mt-5 mb-0;
+}
+
+/* Tabs */
+.wp-block-ssm-tabs .wp-block-ssm-tabs__panel > * + * {
+    @apply mt-5 mb-0;
+}

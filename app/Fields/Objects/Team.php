@@ -23,20 +23,38 @@ class Team {
 				'preview_size'	=> 'medium',
 			])
 
-			->addTaxonomy('team_category', [
-				'label'         => 'Category',
-				'taxonomy'      => 'ssm_team_category',
-				'field_type'    => 'select',
-				'allow_null'    => 0,
-				'add_term'      => 1,
-				'save_terms'    => 1,
-				'load_terms'    => 1,
-				'return_format' => 'object',
-				'multiple'      => 0
+			->addText('team_first_name', [
+				'label'     => 'First Name',
+				'wrapper'       => [
+                    'width'     => 50
+                ]
+			])
+
+			->addText('team_last_name', [
+				'label'     => 'Last Name',
+				'wrapper'       => [
+                    'width'     => 50
+                ]
 			])
 
             ->addText('team_job_title', [
 				'label'     => 'Job Title',
+				'wrapper'       => [
+                    'width'     => 50
+                ]
+			])
+
+			->addText('team_division_location', [
+				'label'     => 'Division / Location',
+				'wrapper'       => [
+                    'width'     => 50
+                ]
+			])
+
+			->addWysiwyg('team_bio', [
+				'label'         => 'Bio',
+				'toolbar'       => 'basic',
+				'media_upload' 	=> 0
 			])
 
 			->setLocation('post_type', '==', 'ssm_team');

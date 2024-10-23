@@ -1,0 +1,63 @@
+.wp-block-ssm-tabs .wp-block-ssm-tabs__panel {
+    @apply hidden;
+}
+
+.wp-block-ssm-tabs .wp-block-ssm-tabs__panel.is-active {
+    @apply block;
+}
+
+.wp-block-ssm-tabs__nav-item > span {
+    @apply bg-transparent;
+}
+
+.wp-block-ssm-tabs__nav-item.is-active > span {
+    @apply font-bold;
+}
+
+.wp-block-ssm-tabs__nav-item.is-active > a > span {
+    @apply font-bold;
+}
+
+.wp-block-ssm-tabs.is-vertical .block-list-appender {
+    @apply w-full
+}
+
+.wp-block-ssm-tabs__panel .block-editor-button-block-appender.components-button.components-button {
+    @apply px-16 py-3
+}
+
+/* Default Color */
+.wp-block-ssm-tabs .wp-block-ssm-tabs__nav-item.is-active > a > span {
+    @apply text-gray-500;
+}
+
+.wp-block-ssm-tabs .wp-block-ssm-tabs__nav-item.is-active > span {
+    @apply bg-gray-500;
+}
+
+/* Primary Color */
+.wp-block-ssm-tabs.tabs-color-primary-500 .wp-block-ssm-tabs__nav-item.is-active>a>span {
+    @apply text-primary-500;
+}
+
+.wp-block-ssm-tabs.tabs-color-primary-500 .wp-block-ssm-tabs__nav-item.is-active>span {
+    @apply bg-primary-500;
+}
+
+/* Secondary Color */
+.wp-block-ssm-tabs.tabs-color-secondary-500 .wp-block-ssm-tabs__nav-item.is-active>a>span {
+    @apply text-secondary-500;
+}
+
+.wp-block-ssm-tabs.tabs-color-secondary-500 .wp-block-ssm-tabs__nav-item.is-active>span {
+    @apply bg-secondary-500;
+}
+
+/* Tertiary Color */
+.wp-block-ssm-tabs.tabs-color-tertiary-500 .wp-block-ssm-tabs__nav-item.is-active>a>span {
+    @apply text-tertiary-500;
+}
+
+.wp-block-ssm-tabs.tabs-color-tertiary-500 .wp-block-ssm-tabs__nav-item.is-active>span {
+    @apply bg-tertiary-500;
+}

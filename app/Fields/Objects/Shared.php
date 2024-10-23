@@ -29,7 +29,8 @@ class Shared {
 			])
 
 			->setLocation('post_type', '==', 'page')
-				->or('post_type', '==', 'post');
+				->or('post_type', '==', 'post')
+				->or('post_type', '==', 'ssm_team');
 
 		// Register Inline Styles
 		add_action('acf/init', function() use ($inlineStyles) {
@@ -56,7 +57,8 @@ class Shared {
 			])
 
 			->setLocation('post_type', '==', 'page')
-				->or('post_type', '==', 'post');
+				->or('post_type', '==', 'post')
+				->or('post_type', '==', 'ssm_team');
 
 		// Register Inline Scripts
 		add_action('acf/init', function() use ($inlineScripts) {

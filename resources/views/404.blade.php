@@ -4,7 +4,7 @@
 
 	<header class="page-header" style="margin-top:120px">
 
-		<div class="grid-container">
+        <div class="container">
 
 			<div class="grid-x grid-margin-x align-center medium-align-left">
 
@@ -18,7 +18,7 @@
 
 	</header>
 
-	<div class="grid-container" style="margin-bottom:120px">
+	<div class="container" style="margin-bottom:120px">
 
 		<div class="alert alert-warning">
 			{{ __('Sorry, but the page you were trying to view does not exist.', 'sage') }}

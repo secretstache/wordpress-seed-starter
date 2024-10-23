@@ -1,8 +1,7 @@
 import { addFilter } from '@wordpress/hooks';
 
 export const reassignBlockCategories = () => {
-
-    //Change core block categories before editor loading
+    // Change core block categories before editor loading
     addFilter("blocks.registerBlockType", "ssm/reassign-block-categories", (settings, name) => {
         const movedBlocks = [
             'core/cover',
@@ -25,6 +24,8 @@ export const reassignBlockCategories = () => {
             'core/column',
             'core/details',
             'gravityforms/form',
+            'core/group',
+            'core/gallery',
         ];
 
         if (!movedBlocks.includes(name)) {
@@ -44,5 +45,4 @@ export const reassignBlockCategories = () => {
             'category': newCategoryName,
         };
     });
-
 };

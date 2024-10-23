@@ -1,0 +1,177 @@
+.gform_wrapper.gravity-theme form {
+	@apply grid grid-cols-1 gap-y-7;
+}
+  
+.gform_wrapper.gravity-theme fieldset,
+.gform_wrapper.gravity-theme legend {
+	@apply bg-none p-0;
+}
+  
+.gform_wrapper.gravity-theme fieldset {
+	@apply block m-0 border-none;
+}
+  
+.gform_wrapper.gravity-theme legend {
+	@apply m-0;
+}
+  
+.gform_wrapper.gravity-theme input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]),
+.gform_wrapper.gravity-theme select,
+.gform_wrapper.gravity-theme textarea {
+	@apply text-base leading-6 border border-gray-300 rounded-md p-3;
+}
+
+.gform_wrapper.gravity-theme input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="image"], [type="file"]):focus-visible,
+.gform_wrapper.gravity-theme select:focus-visible,
+.gform_wrapper.gravity-theme textarea:focus-visible {
+	@apply outline-primary-500;
+}
+  
+.gform_wrapper.gravity-theme textarea {
+	@apply h-auto;
+}
+  
+.gform_wrapper.gravity-theme select {
+	@apply appearance-none;
+	background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.293 8.29297L12 12.586L7.70697 8.29297L6.29297 9.70697L12 15.414L17.707 9.70697L16.293 8.29297Z' fill='%231D213B'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: 1.5rem 1.5rem;
+	background-position: calc(100% - 12px) 50%;
+}
+  
+.gform_wrapper.gravity-theme .gform_fields {
+	@apply grid grid-cols-12 gap-x-0 md:gap-x-3 gap-y-3 w-full;
+}
+  
+.gform_wrapper.gravity-theme .gform_title {
+	@apply mb-5;
+}
+  
+.gform_wrapper.gravity-theme .gfield {
+	@apply col-span-full relative;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-full {
+	@apply col-span-12;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-eleven-twelfths {
+	@apply col-span-12 md:col-span-11;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-five-sixths {
+	@apply col-span-12 md:col-span-10;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-three-quarter {
+	@apply col-span-12 md:col-span-9;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-two-thirds {
+	@apply col-span-12 md:col-span-8;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-seven-twelfths {
+	@apply col-span-12 md:col-span-7;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-half {
+	@apply col-span-12 md:col-span-6;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-five-twelfths {
+	@apply col-span-12 md:col-span-5;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-third {
+	@apply col-span-12 md:col-span-4;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--width-quarter {
+	@apply col-span-12 md:col-span-3;
+}
+  
+.gform_wrapper.gravity-theme .gfield .gfield_label {
+	@apply block mb-2 text-base font-normal;
+}
+
+.gform_wrapper.gravity-theme .gfield .gfield_radio,
+.gform_wrapper.gravity-theme .gfield .gfield_checkbox {
+	@apply grid grid-cols-1 gap-3 m-0 p-0 list-none;
+}
+
+.gform_wrapper.gravity-theme .gfield .gfield_radio input,
+.gform_wrapper.gravity-theme .gfield .gfield_checkbox input {
+	@apply appearance-none mr-3 border border-gray-300 bg-none w-5 h-5 align-middle;
+}
+
+.gform_wrapper.gravity-theme .gfield .gfield_checkbox input:checked {
+	background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.57181 8.15637L1.37339 4.95795L0 6.33134L4.57181 10.9031L14 1.47495L12.6266 0.101562L4.57181 8.15637Z' fill='black'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 12px auto;
+}
+
+.gform_wrapper.gravity-theme .gfield .gfield_radio input {
+	border-radius: 50%;
+}
+
+.gform_wrapper.gravity-theme .gfield .gfield_radio input:checked {
+	background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='13.2px' height='13.2px' viewBox='0 0 13.2 13.2' style='enable-background:new 0 0 13.2 13.2;' xml:space='preserve'%3E%3Ccircle cx='6.6' cy='6.6' r='6.6' fill='%23212121'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 12px 12px;
+}
+
+.gform_wrapper.gravity-theme .gfield.gfield--type-consent .ginput_container {
+	@apply flex justify-end items-center space-x-3;
+}
+
+.gform_wrapper.gravity-theme .gfield.gfield--type-consent input[type="checkbox"] {
+	@apply w-5 h-5 appearance-none border border-gray-300 border-solid bg-none;
+}
+
+.gform_wrapper.gravity-theme .gfield.gfield--type-consent input[type="checkbox"]:checked {
+	background-image: url("data:image/svg+xml,%3Csvg width='14' height='11' viewBox='0 0 14 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.57181 8.15637L1.37339 4.95795L0 6.33134L4.57181 10.9031L14 1.47495L12.6266 0.101562L4.57181 8.15637Z' fill='black'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 12px auto;
+}
+  
+.gform_wrapper.gravity-theme .gfield.gfield--type-consent .gfield_label {
+	@apply hidden;
+}
+
+.gform_wrapper.gravity-theme .gfield.gfield--type-consent .validation_message {
+	@apply text-right;
+}
+  
+.gform_wrapper.gravity-theme .gform_button {
+	@apply transition duration-300 rounded-md bg-gray-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:!bg-gray-500;
+}
+  
+.gform_wrapper.gravity-theme .gform_footer {
+	@apply text-center justify-end mt-4 p-0;
+}
+  
+.gform_wrapper.gravity-theme .gfield_validation_message ul {
+	@apply my-4 pl-6;
+}
+  
+.gform_wrapper.gravity-theme .gf_hidden,
+.gform_wrapper.gravity-theme .gform_hidden {
+	@apply hidden;
+}
+ 
+.gform_wrapper.gravity-theme .ginput_complex {
+	@apply flex flex-wrap;
+}
+  
+/* Error states */
+.gform_wrapper.gravity-theme form .gfield_error label,
+.gform_wrapper.gravity-theme form .gfield_error legend,
+.gform_wrapper.gravity-theme form .gfield_validation_message,
+.gform_wrapper.gravity-theme form .validation_message,
+.gform_wrapper.gravity-theme form [aria-invalid="true"] + label {
+	@apply text-[#b91c1c] border-0 bg-transparent p-0 text-sm;
+}

@@ -1,6 +1,6 @@
 <header class="template-header{!! $template['template_alignment'] == 'center' ? ' align-center' : '' !!}">
 
-	<div class="grid-container">
+    <div class="container">
 
 		@if (!empty($container_classes))
 			<div class="{!! $container_classes !!}">

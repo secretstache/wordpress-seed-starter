@@ -1,20 +1,9 @@
 import {
     getBlockType,
-    getBlockVariations,
     unregisterBlockType,
-    unregisterBlockVariation,
 } from '@wordpress/blocks';
 
 export const unsetBlocks = () => {
-
-    // unset unnecessary embed blocks
-    getBlockVariations("core/embed")
-        .forEach(function (embed) {
-            if (embed.name !== "youtube" && embed.name !== "vimeo") {
-                unregisterBlockVariation("core/embed", embed.name);
-            }
-        });
-
     // unregister unnecessary blocks
     const unsetBlocks = [
         //core
@@ -34,6 +23,7 @@ export const unsetBlocks = () => {
         "core/search",
         "core/social-links",
         "core/tag-cloud",
+        "core/table-of-contents",
         "core/navigation",
         "core/navigation-link",
         "core/navigation-submenu",
@@ -47,6 +37,7 @@ export const unsetBlocks = () => {
         "core/post-content",
         "core/post-author",
         "core/post-navigation-link",
+        "core/post-time-to-read",
         "core/query-pagination",
         "core/query-pagination-next",
         "core/query-pagination-numbers",
@@ -81,12 +72,9 @@ export const unsetBlocks = () => {
         "core/home-link",
         'core/spacer',
         'core/media-text',
-        'core/group',
-        "core/gallery",
         'core/file',
         'core/missing',
         'core/pattern',
-        'core/block',
         'core/text-columns',
         'core/footnotes',
         'core/template-part',
@@ -109,5 +97,4 @@ export const unsetBlocks = () => {
             unregisterBlockType(blockName);
         }
     });
-
 };

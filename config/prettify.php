@@ -37,7 +37,7 @@ return [
         /**
          * Disable Gutenberg block library CSS.
          */
-        'disable-gutenberg-block-css' => true,
+        'disable-gutenberg-block-css' => false,
 
         /**
          * Disable extra RSS feeds.
@@ -97,7 +97,6 @@ return [
             'the_permalink',
             'wp_list_pages',
             'wp_list_categories',
-            'wp_get_attachment_url',
             'the_content_more_link',
             'the_tags',
             'get_pagenum_link',
@@ -113,5 +112,4 @@ return [
             'parent_theme_file_uri',
         ],
     ],
-
 ];

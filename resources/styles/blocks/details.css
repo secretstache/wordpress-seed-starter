@@ -1,0 +1,7 @@
+.wp-block-details * {
+   @apply box-border;
+}
+
+.wp-block-details[open] summary {
+   @apply mb-3;
+}

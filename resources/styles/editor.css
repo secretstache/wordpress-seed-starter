@@ -1,7 +1,64 @@
 @charset "utf-8";
 
-@import "@secretstache/wordpress-gutenberg/build/index.css";
+@import "vendor.css";
+@import "common/config.css";
+@import "common/splide.css";
+@import "common/default-margins.css";
+@import "common/editor-typography.css";
+@import "common/gravity.css";
+
+@import "@secretstache/wordpress-gutenberg/build/styles.css";
+
+/* Core */
+@import "blocks/buttons.css";
+@import "blocks/list.css";
+@import "blocks/image.css";
+@import "blocks/video.css";
+@import "blocks/pullquote.css";
+@import "blocks/table.css";
+@import "blocks/separator.css";
+@import "blocks/details.css";
+
+/* Custom */
+@import "blocks/testimonials.css";
+@import "blocks/content-slider.css";
+@import "blocks/content-slider.editor.css";
+@import "blocks/accordion.css";
+@import "blocks/blog-feed.editor.css";
+@import "blocks/tabs.css";
+@import "blocks/wp-blocks-settings.css";
+@import "blocks/section-wrapper.css";
+@import "blocks/block-grid.css";
+@import "blocks/cta.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.is-root-container {
+    @apply overflow-hidden font-sans;
+}
+
+/* TODO: refactor  */
+.editor-styles-wrapper a:where(:not(.wp-element-button)).ssm-cta-button {
+    text-decoration: none !important;
+    color: #fff;
+}
+
+/* TODO: refactor */
+.components-h-stack>.components-checkbox-control {
+   @apply mb-0;
+}
+
+:where(.editor-styles-wrapper) p {
+    @apply leading-6;
+}
+
+/* TODO: refactor */
+.editor-styles-wrapper .block-editor-block-list__layout a:where(:not(.wp-element-button)):not(.blog-feed__item) {
+    @apply text-primary-500 underline hover:no-underline transition ease-in-out;
+}
+
+.block-editor-block-list__block .block-list-appender {
+    @apply z-[999];
+}

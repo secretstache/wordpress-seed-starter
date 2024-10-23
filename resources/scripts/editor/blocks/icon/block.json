@@ -3,6 +3,9 @@
   "apiVersion": 3,
   "title": "Icon",
   "name": "ssm/icon",
+  "ancestor": [
+    "ssm/section-wrapper"
+  ],
   "keywords": [
     "icon"
   ],
@@ -14,7 +17,18 @@
     "spacing": {
       "margin": true,
       "padding": true
-    }
+    },
+    "align": ["left", "center", "right"]
   },
-  "attributes": {}
+  "attributes": {
+    "svgCode": {
+      "type": "string",
+      "default": null
+    },
+    "size": {
+      "type": "string",
+      "enum": ["small", "medium", "large"],
+      "default": "small"
+    }
+  }
 }

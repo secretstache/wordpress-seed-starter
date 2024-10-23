@@ -1,0 +1,39 @@
+.wp-block-ssm-content-slider:not(.is-preview) {
+    @apply p-0;
+}
+
+.wp-block-ssm-content-slider:not(.is-preview) .splide__list {
+    @apply flex overflow-x-auto gap-10;
+}
+
+.wp-block-ssm-content-slider:not(:is(.is-preview, .is-full-width)) .wp-block-ssm-slide {
+    @apply max-w-[800px];
+}
+
+.wp-block-ssm-content-slider:not(.is-preview).is-full-width .wp-block-ssm-slide {
+    @apply max-w-full;
+}
+
+.scroll-shadow {
+    @apply relative rounded-xl overflow-hidden;
+}
+
+.scroll-shadow::before {
+    content: '';
+    @apply absolute top-0 left-0 bottom-0 w-[10%] z-10;
+    background-image: linear-gradient(to left, transparent, rgb(0 0 0 / 5%));
+}
+
+.scroll-shadow::after {
+    content: '';
+    @apply absolute top-0 right-0 bottom-0 w-[10%] z-10;
+    background-image: linear-gradient(to right, transparent, rgb(0 0 0 / 5%));
+}
+
+.wp-block-ssm-content-slider.is-full-width.is-preview {
+    @apply overflow-hidden;
+}
+
+.wp-block-ssm-content-slider.is-full-width.is-preview .wp-block-ssm-slide__inner {
+    @apply w-full flex items-center justify-center;
+}

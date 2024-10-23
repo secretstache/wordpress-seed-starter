@@ -1,6 +1,6 @@
 <section class="content-block protected">
 
-    <div class="grid-container">
+    <div class="container">
 
         <div class="grid-x grid-margin-x align-center">
 
@@ -20,7 +20,7 @@
                         <input type="submit" class="button" name="Submit" value="Enter" />
                     </div>
 
-                </form>  
+                </form>
 
             </div>
 
@@ -28,4 +28,4 @@
 
     </div>
 
-</section>  
+</section>

@@ -1,0 +1,43 @@
+.wp-block-image {
+    @apply block relative m-0;
+}
+
+.wp-block-image img {
+    @apply block overflow-hidden max-w-full h-auto;
+}
+
+.wp-block-image a {
+    @apply block;
+}
+
+.wp-block-image.aligncenter {
+    @apply text-center;
+}
+
+.wp-block-image.aligncenter img {
+    @apply mx-auto;
+}
+
+.wp-block-image.alignright {
+    @apply ml-4 mb-4 flex justify-end;
+}
+
+.wp-block-image.alignright img {
+    @apply mb-4;
+}
+
+.wp-block-image.alignleft img {
+    @apply float-left mr-4 mb-4;
+}
+
+.wp-block-image.alignfull img {
+    @apply w-full;
+}
+
+.wp-block-image::after {
+    @apply content-[''] table clear-both;
+}
+
+.wp-block-image :where(figcaption){
+    @apply text-sm my-3 text-gray-500;
+}

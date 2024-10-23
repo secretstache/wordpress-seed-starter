@@ -1,6 +1,9 @@
-<button class="hamburger hide-for-large" aria-controls="offcanvas">
-    <span class="show-for-sr">Menu toggle</span>
-    <span class="hamburger__line hamburger__line--1"></span>
-    <span class="hamburger__line hamburger__line--2"></span>
-    <span class="hamburger__line hamburger__line--3"></span>
+<button type="button" class="hamburger flex flex-col" aria-label="open offcanvas menu" aria-controls="offcanvas" aria-expanded="false" >
+
+    <span class="sr-only">Open main menu</span>
+
+    <span class="icon-bar bg-secondary-500 w-[22px] h-[5px] mb-1"></span>
+    <span class="icon-bar bg-secondary-500 w-[22px] h-[5px] mb-1"></span>
+    <span class="icon-bar bg-secondary-500 w-[22px] h-[5px]"></span>
+
 </button>

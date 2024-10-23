@@ -1,0 +1,34 @@
+/* navigation */
+.site-header .is-dropdown .submenu-wrapper:has(:focus) {
+    opacity: 1;
+}
+
+.site-header .is-dropdown [aria-expanded="true"].dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.is-dropdown [aria-expanded="true"] + .submenu-wrapper {
+    visibility: visible;
+}
+
+.site-header .is-dropdown [aria-expanded="true"]:focus + .submenu-wrapper {
+    opacity: 1;
+}
+
+.site-header .is-dropdown li:has(ul):hover > .submenu-wrapper {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.offcanvas__navigation ul li.menu-item-has-children .arrow-wrapper {
+    @apply flex justify-between items-center gap-1.5;
+}
+
+.offcanvas__navigation ul li.menu-item-has-children.is-active > .arrow-wrapper > a{
+    @apply text-primary-500;
+}
+
+.offcanvas__navigation ul li.menu-item-has-children.is-active > .mega-menu,
+.offcanvas__navigation ul li.menu-item-has-children.is-active > .mega-menu__sub-menu{
+    @apply max-h-full;
+}

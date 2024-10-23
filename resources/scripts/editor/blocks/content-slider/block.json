@@ -4,6 +4,9 @@
   "title": "Content Slider",
   "description": "",
   "name": "ssm/content-slider",
+  "parent": [
+    "ssm/section-wrapper"
+  ],
   "keywords": [
     "content",
     "slider",
@@ -14,8 +17,24 @@
   "icon": "slides",
   "supports": {
     "spacing": {
-      "margin": true
+      "margin": true,
+      "padding": true
     }
   },
-  "attributes": {}
+  "attributes": {
+    "isPreview": {
+      "type": "boolean",
+      "default": false
+    },
+    "carouselColor": {
+      "type": "object"
+    },
+    "layoutType": {
+      "enum": [
+        "default",
+        "full-width"
+      ],
+      "default": "default"
+    }
+  }
 }

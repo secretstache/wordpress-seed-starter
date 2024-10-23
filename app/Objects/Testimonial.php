@@ -17,6 +17,8 @@ add_action( 'init', function() {
         "has_archive"       => false,
         "public"            => false,
         "show_ui"           => true,
+        "show_in_rest"      => true,
+
 
         "labels"            => [
             "all_items"     => "Testimonials",

@@ -1,0 +1,37 @@
+ul.wp-block-list {
+    @apply list-none pl-0;
+}
+
+ul.wp-block-list > li {
+    @apply relative m-0 leading-6 pl-1.5;
+}
+
+ul.wp-block-list > li::before {
+    content: '';
+    @apply bg-gray-900 rounded-full w-1.5 h-1.5 mr-3 inline-block relative -top-[3px];
+}
+
+ul.wp-block-list > li div{
+    @apply inline;
+}
+
+.wp-block-list li > .wp-block-list {
+    @apply w-full pl-3;
+}
+
+ol.wp-block-list {
+    @apply list-decimal pl-3;
+}
+
+ol.wp-block-list > li {
+    @apply relative m-0 leading-6 pl-1.5;
+}
+
+ol.wp-block-list > li::marker {
+   @apply font-semibold;
+}
+
+:where(.text-center) ul.wp-block-list,
+:where(.text-center) ol.wp-block-list {
+    @apply inline-block;
+}

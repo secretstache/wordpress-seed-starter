@@ -161,6 +161,7 @@ class SSM extends Composer
 
         }
 
+        // TODO: too long and difficult to understand, refactor
         if ( isset($data['taxonomy_slug']) && isset($data['selected_terms']) && !empty($data['selected_terms']) && $data['query'] == 'by_' . str_replace( $data['prefix'] . '_', '', $data['taxonomy_slug'] ) ) {
 
             $taxonomy_args = [

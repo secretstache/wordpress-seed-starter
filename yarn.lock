@@ -2708,10 +2708,10 @@
   dependencies:
     tslib "2.6.3"
 
-"@secretstache/wordpress-gutenberg@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@secretstache/wordpress-gutenberg/-/wordpress-gutenberg-0.4.3.tgz#036af5bfbcdff2505d5dddaa8e6ffb19997dd765"
-  integrity sha512-iTDU5tBdVcAH+ZLpTmnwCf8AzlffrdMk1PFawy/Q7Ncwt3lO6CLHPoeBUvUVFAVwrHdIEvbdU9XBOv5u9TCaxg==
+"@secretstache/wordpress-gutenberg@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@secretstache/wordpress-gutenberg/-/wordpress-gutenberg-0.4.5.tgz#ddc3809d1f9ef8a3cb42319e4e34443c9d15beb0"
+  integrity sha512-6hxID1dm6Y/+V4yVn8gXDzL8VAK90oSJ/3ShgMdvlwdPCcNzi5Vht/rPD8j0Ou5rCDxhkz1Nq/64pso3xybdYg==
   dependencies:
     classnames "^2.5.1"
     es-toolkit "^1.12.0"

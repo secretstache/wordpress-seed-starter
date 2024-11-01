@@ -5,12 +5,12 @@ import {
     hideRootBlockForOtherBlocks,
 } from '@secretstache/wordpress-gutenberg';
 
-import './blocks/section-wrapper/index';
-import './blocks/accordion/index';
-import './blocks/block-grid/index';
-import './blocks/content-slider/index';
-import './blocks/split-content/index';
-import './blocks/tabs/index';
+import './blocks/section-wrapper/index.js';
+import './blocks/accordion/index.js';
+import './blocks/block-grid/index.js';
+import './blocks/content-slider/index.js';
+import './blocks/split-content/index.js';
+import './blocks/tabs/index.js';
 import './blocks/call-to-action/index.js';
 import './blocks/logo-wall/index.js';
 import './blocks/blog-feed/index.js';

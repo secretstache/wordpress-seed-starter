@@ -199,85 +199,86 @@ add_filter('block_categories_all', function ($categories) {
     return $final_categories;
 });
 
-add_filter( 'admin_body_class', function ( $classes ) {
+if (class_exists('acf')) {
 
-    $is_active = true;
+    add_filter( 'admin_body_class', function ( $classes ) {
 
-    $google_fonts_api_key = get_field( 'google_fonts_api_key', 'options' );
-    $google_fonts = get_option('google_fonts');
+        $is_active = true;
 
-    if( $google_fonts_api_key && !$google_fonts ) {
+        $google_fonts_api_key = get_field( 'google_fonts_api_key', 'options' );
+        $google_fonts = get_option('google_fonts');
 
-        $api_url = "https://www.googleapis.com/webfonts/v1/webfonts?key=" . $google_fonts_api_key;
+        if( $google_fonts_api_key && !$google_fonts ) {
 
-        if( ( $data = json_decode( file_get_contents( $api_url, false, stream_context_create( [ "ssl" => [ "verify_peer" => false, "verify_peer_name" => false ] ] ) ) ) ) && ( $fonts = $data->items ) ) {
+            $api_url = "https://www.googleapis.com/webfonts/v1/webfonts?key=" . $google_fonts_api_key;
 
-            $fetched_fonts = [];
+            if( ( $data = json_decode( file_get_contents( $api_url, false, stream_context_create( [ "ssl" => [ "verify_peer" => false, "verify_peer_name" => false ] ] ) ) ) ) && ( $fonts = $data->items ) ) {
 
-            foreach( $fonts as $font ) {
+                $fetched_fonts = [];
 
-                $fetched_fonts[ $font->family ] = [ 'font_family' => $font->family ];
+                foreach( $fonts as $font ) {
+
+                    $fetched_fonts[ $font->family ] = [ 'font_family' => $font->family ];
+
+                }
+
+                add_option( 'google_fonts', $fetched_fonts );
+
+            } else {
+                $is_active = false;
+            }
+
+        }
+
+        $classes .= ( $is_active == false ) ? 'google-fonts-error' : '';
+
+        return $classes;
+
+    }, 99 );
+
+    add_filter('acf/load_field/name=google_font', function( $field ) {
+
+        $google_fonts = get_option('google_fonts');
+
+        if ( is_admin() && $google_fonts ) {
+
+            $field['choices'] = array();
+
+            foreach( $google_fonts as $font_id => $font ) {
+
+                $field['choices'][$font_id] = $font_id;
 
             }
 
-            add_option( 'google_fonts', $fetched_fonts );
-
-        } else {
-            $is_active = false;
         }
 
-    }
+        return $field;
 
-    $classes .= ( $is_active == false ) ? 'google-fonts-error' : '';
+    });
 
-    return $classes;
+    add_action( 'wp_head', function() {
 
-}, 99 );
+        echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
+        echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
 
-add_filter('acf/load_field/name=google_font', function( $field ) {
+        if ( $global_fonts = get_field( 'global_fonts', 'options' ) ) {
 
-    $google_fonts = get_option('google_fonts');
+            foreach( $global_fonts as $font ) {
 
-    if ( is_admin() && $google_fonts ) {
+                echo '<link href="https://fonts.googleapis.com/css2?family=' . $font['google_font'] . ':ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">';
 
-        $field['choices'] = array();
-
-        foreach( $google_fonts as $font_id => $font ) {
-
-            $field['choices'][$font_id] = $font_id;
+            }
 
         }
 
-    }
+    });
 
-    return $field;
+    add_filter('acf/fields/google_map/api', function($api){
+        $api['key'] = get_field( 'google_maps_api_key', 'options' ) ?: '';
+        return $api;
+    });
 
-});
-
-add_action( 'wp_head', function() {
-
-    echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
-	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
-
-    if ( $global_fonts = get_field( 'global_fonts', 'options' ) ) {
-
-        foreach( $global_fonts as $font ) {
-
-            echo '<link href="https://fonts.googleapis.com/css2?family=' . $font['google_font'] . ':ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">';
-
-        }
-
-    }
-
-});
-
-add_filter('acf/fields/google_map/api', function($api){
-
-    $api['key'] = get_field( 'google_maps_api_key', 'options' ) ?: '';
-
-    return $api;
-
-});
+}
 
 /**
  * Templates without editor

@@ -2,7 +2,7 @@
 
     <li class="menu__item block border-b border-gray-200 py-2 {!! !empty( $item->children ) ? ' relative menu-item-has-children' : '' !!}{!! $item->classes ? ' ' . $item->classes : '' !!}">
 
-        <a class="text-sm uppercase leading-6 text-gray-900" href="{!! $item->url !!}">{!! $item->label !!}</a>
+        <a class="text-sm uppercase leading-6 text-gray-900" target="{!! $item->target ?: '_self' !!}" href="{!! $item->url !!}">{!! $item->label !!}</a>
 
         @if ( !empty( $item->children ) )
 
@@ -20,7 +20,7 @@
 
                         <li class="mega-menu__navigation-item {!! !empty( $child->children ) ? ' menu-item-has-children' : '' !!}{!! $child->classes ? ' ' . $child->classes : '' !!}">
 
-                            <a class="block transition py-3 ease-in-out text-sm text-gray-500 hover:text-primary-500" href="{!! $child->url !!}">
+                            <a class="block transition py-3 ease-in-out text-sm text-gray-500 hover:text-primary-500" target="{!! $child->target ?: '_self' !!}" href="{!! $child->url !!}">
 
                                 <p class="menu__item-title">{!! $child->label !!}</p>
 
@@ -42,7 +42,7 @@
 
                                             <li class="mega-menu__sub-menu-item">
 
-                                                <a class="transition ease-in-out text-sm text-gray-900 hover:text-primary-500" href="{!! $subchild->url !!}">
+                                                <a class="transition ease-in-out text-sm text-gray-900 hover:text-primary-500" target="{!! $subchild->target ?: '_self' !!}" href="{!! $subchild->url !!}">
 
                                                     <p class="menu__item-title">{!! $subchild->label !!}</p>
                     

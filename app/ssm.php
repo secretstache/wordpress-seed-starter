@@ -201,6 +201,7 @@ add_filter('block_categories_all', function ($categories) {
 
 if (class_exists('acf')) {
 
+    // TODO: it throws an error that get_field is not a function if a theme is activated but plugins are not installed
     add_filter( 'admin_body_class', function ( $classes ) {
 
         $is_active = true;

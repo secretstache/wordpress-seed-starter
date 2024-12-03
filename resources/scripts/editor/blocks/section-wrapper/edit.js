@@ -78,11 +78,12 @@ export const edit = ({ name: blockName, attributes, setAttributes, clientId }) =
 
     const allowedBlocks = useFilterBlocks((block) => {
         const isBaseBlock = block.name === 'core/block';
+        const isGroupBlock = block.name === 'core/group';
 
         const isTemplateCategory = block.category === 'ssm-templates';
         const noParent = !block.parent;
 
-        return isBaseBlock || (isTemplateCategory && noParent);
+        return isBaseBlock || isGroupBlock || (isTemplateCategory && noParent);
     });
 
     const blockProps = useBlockProps({

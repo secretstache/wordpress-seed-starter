@@ -30,13 +30,11 @@ class SSM extends Composer
 
         $footer_menus = [];
 
-        if( ( $menu_columns = get_field( 'footer_menus', 'options' ) ) && is_array( $menu_columns ) && !empty( $menu_columns ) ) {
+        if( ( $menu_columns = get_field( 'footer_menus', 'options' ) ) && !empty($menu_columns) && is_array( $menu_columns ) ) {
 
             foreach( $menu_columns as $column ) {
                 $footer_menus[] = [
                     'nav_menu' => Navi::build( $column['nav_menu']->term_id )->toArray(),
-                    'headline' => $column['headline'],
-                    'page_id' => $column['page_id']
                 ];
             }
 
@@ -65,7 +63,6 @@ class SSM extends Composer
                 'youtube'           => get_field( 'youtube', 'options' )
             ],
             'footer'                => [
-                'contact_page_id'   => get_field( 'contact_page_id', 'options' ),
                 'copyright'         => get_field( 'footer_copyright', 'options' )
             ],
             'is_landing_page'       => is_page_template('template-landing-page.blade.php')

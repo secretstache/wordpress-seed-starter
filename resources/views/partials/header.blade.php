@@ -30,8 +30,8 @@
 
 							<li class="menu__item{!! $item->classes ? ' ' . $item->classes : '' !!}">
 
-								<a class="text-sm leading-6 text-gray-700 hover:text-gray-400 transition-colors duration-300" href="{!! $item->url !!}">{!! $item->label !!}</a>
-
+								<a class="text-sm leading-6 text-gray-700 hover:text-gray-400 transition-colors duration-300" target="{!! $item->target ?: '_self' !!}" href="{!! $item->url !!}">{!! $item->label !!}</a>
+								
 							</li>
 
 						@endforeach
@@ -40,7 +40,7 @@
 
 				@endif
 
-				@if ( isset( $business_information['phone_number'] ) && !empty( $business_information['phone_number'] ) )
+				@if ( !empty( $business_information['phone_number'] ) )
 
 					<a class="text-sm font-semibold leading-6 text-primary-500" href="tel:{!! $business_information['phone_number']['number'] !!}">{!! $builder->getPhoneNumber( $business_information['phone_number'] ) !!}</a>
 

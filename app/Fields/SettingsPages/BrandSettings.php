@@ -127,7 +127,7 @@ class BrandSettings {
 				])
 				
 				->addText('twitter', [
-					'label' 	=> 'Twitter',
+					'label' 	=> 'Twitter X',
 					'prepend' 	=> 'URL',
 				])
 				
@@ -214,13 +214,6 @@ class BrandSettings {
 
 		$globalFooter
 
-			->addPostObject('contact_page_id', [
-				'label'        => 'Contact Page',
-				'post_type'    => ['page'],
-				'allow_null'   => 1,
-				'return_format' => 'id'
-			])
-
 			->addRepeater('footer_menus', [
 				'label'         => 'Menu Columns',
 				'layout'		=> 'block',
@@ -228,17 +221,6 @@ class BrandSettings {
 				'max'			=> 5,
 				'button_label'	=> 'Add Column',
 			])
-
-				->addText('headline', [
-					'label'     => 'Headline',
-				])
-
-				->addPostObject('page_id', [
-					'label'        => 'Select a Page',
-					'post_type'    => ['page'],
-					'allow_null'   => 1,
-					'return_format' => 'id'
-				])
 
 				->addField('nav_menu', 'acfe_menus', [
 					'label' 		=> 'Select a Menu',

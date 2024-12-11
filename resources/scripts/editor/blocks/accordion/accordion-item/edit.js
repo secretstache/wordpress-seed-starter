@@ -27,12 +27,17 @@ export const edit = ({ attributes, setAttributes, clientId }) => {
         headingSlug: contextHeadingSlug,
     } = useContext(AccordionContext);
 
-    const { blockRef, isActive: isOpened, toggleItem } = useAccordionItem(
-        clientId,
-        activeItemClientId,
-        setActiveItemClientId,
-        '.wp-block-ssm-accordion__content',
-    );
+    const { childBlocks } = useSelect(select => ({
+        childBlocks: select('core/block-editor').getBlocks(clientId),
+    }), []);
+
+    const { blockRef, isActive: isOpened, toggleItem } = useAccordionItem({
+        itemId: clientId,
+        activeItemId: activeItemClientId,
+        setActiveItemId: setActiveItemClientId,
+        contentSelector: '.wp-block-ssm-accordion__content',
+        heightObserverDeps: [ childBlocks ],
+    });
 
     useEffect(() => {
         if (itemLayoutStyle !== contextLayoutStyle) {
@@ -47,10 +52,6 @@ export const edit = ({ attributes, setAttributes, clientId }) => {
     }, [ contextHeadingSlug, itemHeadingSlug ]);
 
     const contentRef = useRef(null);
-
-    const { childBlocks } = useSelect(select => ({
-        childBlocks: select('core/block-editor').getBlocks(clientId),
-    }), [ clientId ]);
 
     useEffect(() => {
         // update the max height when the content is changed

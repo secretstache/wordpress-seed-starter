@@ -1,11 +1,10 @@
 import { addFilter } from '@wordpress/hooks';
 import { getBlockTypes } from '@wordpress/blocks';
-import { dispatch } from '@wordpress/data';
 
-export const setAllowedBlocksForColumn = () => {
+export const addAllowedBlocksForColumnFilter = () => {
     addFilter(
         'blocks.registerBlockType',
-        'ssm/core-column-allowed-blocks',
+        'ssm/dynamic/allowed-blocks-for-column',
         (blockSettings, blockName) => {
             if (blockName !== 'core/column') {
                 return blockSettings;
@@ -25,6 +24,4 @@ export const setAllowedBlocksForColumn = () => {
             return blockSettings;
         },
     );
-
-    dispatch('core/blocks').reapplyBlockTypeFilters();
 };

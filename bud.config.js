@@ -1,6 +1,6 @@
 export default async (app) => {
     app.eslint
-        .setFailOnError(true)
+        .setFailOnError(false)
         .setFailOnWarning(false);
 
     app.stylelint

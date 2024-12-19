@@ -144,10 +144,10 @@ const ssmBlocksCompleter = {
     },
 };
 
-export const replaceBlocksCompleter = () => {
+export const addBlocksCompleterFilter = () => {
     addFilter(
         'editor.Autocomplete.completers',
-        'ssm/replace-blocks-completer',
+        'ssm/dynamic/blocks-completer',
         (completers, blockName) => {
             const isParagraph = blockName === 'core/paragraph';
             const isHeading = blockName === 'core/heading';

@@ -1,12 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
+  "apiVersion": 2,
   "title": "Block Grid",
   "description": "",
   "name": "ssm/block-grid",
-  "parent": [
-    "ssm/section-wrapper"
-  ],
   "allowedBlocks": [
     "ssm/block-grid-item"
   ],

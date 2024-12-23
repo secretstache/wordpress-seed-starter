@@ -1,7 +1,4 @@
-import {
-    getBlockType,
-    unregisterBlockType,
-} from '@wordpress/blocks';
+import { getBlockType, unregisterBlockType } from '@wordpress/blocks';
 
 export const unsetBlocks = () => {
     const unsetBlocks = [

@@ -5,6 +5,7 @@ import {
     useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { useCallback } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 import {
     PanelBody,
     __experimentalDivider as Divider,
@@ -18,9 +19,8 @@ import {
     ColorPaletteControl,
     getSpacingClasses,
     MediaTypeControl,
-    useFilterBlocks,
+    useAllowedBlocks,
 } from '@secretstache/wordpress-gutenberg';
-import { useSelect } from '@wordpress/data';
 
 import { EmptyBlockAppender } from '@scripts/editor/components/empty-block-appender.js';
 
@@ -76,15 +76,18 @@ export const edit = ({ name: blockName, attributes, setAttributes, clientId }) =
         setAttributes({ spacing });
     }, []);
 
-    const allowedBlocks = useFilterBlocks((block) => {
-        const isBaseBlock = block.name === 'core/block';
-        const isGroupBlock = block.name === 'core/group';
+    const allowedBlocks = useAllowedBlocks(blockName, blockName);
 
-        const isTemplateCategory = block.category === 'ssm-templates';
-        const noParent = !block.parent;
+    const hasInnerBlocks = useSelect((select) => {
+        const { getBlockOrder } = select('core/block-editor');
 
-        return isBaseBlock || isGroupBlock || (isTemplateCategory && noParent);
-    });
+        return getBlockOrder(clientId).length > 0;
+    }, []);
+
+    const deviceType = useSelect(
+        (select) => select('core/edit-post')?.__experimentalGetPreviewDeviceType?.() || 'Desktop',
+        [],
+    );
 
     const blockProps = useBlockProps({
         className: classNames(
@@ -96,13 +99,6 @@ export const edit = ({ name: blockName, attributes, setAttributes, clientId }) =
             },
         ),
     });
-
-    const hasInnerBlocks = useSelect((select) => {
-        const { getBlockOrder } = select('core/block-editor');
-
-        return getBlockOrder(clientId).length > 0;
-    }, [ clientId ]);
-
 
     const { ...innerBlocksProps } = useInnerBlocksProps({
         className: 'wp-block-ssm-section-wrapper__content relative container mx-auto z-10',
@@ -190,6 +186,7 @@ export const edit = ({ name: blockName, attributes, setAttributes, clientId }) =
                         max={10}
                         onChange={onSpacingChange}
                         value={spacing}
+                        deviceType={deviceType}
                     />
                 </PanelBody>
             </InspectorControls>

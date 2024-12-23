@@ -1,4 +1,4 @@
-import { addFilter } from '@wordpress/hooks';
+import { addFilter, removeFilter } from '@wordpress/hooks';
 import { useSelect } from '@wordpress/data';
 import { createBlocksFromInnerBlocksTemplate, parse } from '@wordpress/blocks';
 import { createBlock } from '@wordpress/blocks';
@@ -144,24 +144,29 @@ const ssmBlocksCompleter = {
     },
 };
 
-export const addBlocksCompleterFilter = () => {
-    addFilter(
-        'editor.Autocomplete.completers',
-        'ssm/dynamic/blocks-completer',
-        (completers, blockName) => {
-            const isParagraph = blockName === 'core/paragraph';
-            const isHeading = blockName === 'core/heading';
+export const blocksCompleterFilter = {
+    add() {
+        addFilter(
+            'editor.Autocomplete.completers',
+            'ssm/blocks-completer',
+            (completers, blockName) => {
+                const isParagraph = blockName === 'core/paragraph';
+                const isHeading = blockName === 'core/heading';
 
-            if (isParagraph || isHeading) {
-                return completers.map(
-                    (completer) => completer.name === 'blocks'
-                        ? ssmBlocksCompleter
-                        : completer,
-                );
-            }
+                if (isParagraph || isHeading) {
+                    return completers.map(
+                        (completer) => completer.name === 'blocks'
+                            ? ssmBlocksCompleter
+                            : completer,
+                    );
+                }
 
-            return completers;
-        },
-    );
-};
+                return completers;
+            },
+        );
+    },
+    remove() {
+        removeFilter('editor.Autocomplete.completers', 'ssm/blocks-completer');
+    },
+}
 

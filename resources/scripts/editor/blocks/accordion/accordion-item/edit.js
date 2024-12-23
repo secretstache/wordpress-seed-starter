@@ -5,9 +5,9 @@ import {
     RichText,
 } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
-import { useEffect, useContext, useRef } from '@wordpress/element';
+import { useEffect, useContext } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import { useAccordionItem, useFilterBlocks } from '@secretstache/wordpress-gutenberg';
 
 import { OpenIcon, CloseIcon } from './components/icons';
@@ -51,15 +51,6 @@ export const edit = ({ attributes, setAttributes, clientId }) => {
         }
     }, [ contextHeadingSlug, itemHeadingSlug ]);
 
-    const contentRef = useRef(null);
-
-    useEffect(() => {
-        // update the max height when the content is changed
-        if (isOpened && contentRef?.current) {
-            contentRef.current.style.maxHeight = contentRef.current.scrollHeight + 'px';
-        }
-    }, [ childBlocks ]);
-
     const allowedBlocks = useFilterBlocks((block) => {
         const isBaseBlock = block.name === 'core/block';
         const isComponentsCategory = block.category === 'ssm-components';
@@ -72,7 +63,7 @@ export const edit = ({ attributes, setAttributes, clientId }) => {
     const isHorizontal = itemLayoutStyle === 'horizontal';
 
     const blockProps = useBlockProps({
-        className: classnames(
+        className: classNames(
             'wp-block-ssm-accordion__item',
             {
                 'is-opened': isOpened,
@@ -107,7 +98,7 @@ export const edit = ({ attributes, setAttributes, clientId }) => {
             <div {...blockProps}>
 
                 <header
-                    className={ classnames('wp-block-ssm-accordion__header cursor-pointer', {
+                    className={classNames('wp-block-ssm-accordion__header cursor-pointer', {
                         'py-6': !isHorizontal,
                         'h-full': isHorizontal && !isOpened,
                     })}
@@ -134,15 +125,14 @@ export const edit = ({ attributes, setAttributes, clientId }) => {
 
                 </header>
 
-                <article className={ classnames(
+                <article className={classNames(
                     'wp-block-ssm-accordion__content box-border pr-12 text-base leading-7 text-gray-600',
                     {
                         'mt-2 pb-6': isOpened,
                         'w-full transition-all ease-in-out duration-700': isHorizontal,
                         'h-0': isHorizontal && !isOpened,
                         'h-full': isHorizontal && isOpened,
-                    }) }
-                    ref={contentRef}
+                    })}
                 >
 
                     <div {...innerBlocksProps}>

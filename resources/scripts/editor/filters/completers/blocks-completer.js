@@ -168,5 +168,4 @@ export const blocksCompleterFilter = {
     remove() {
         removeFilter('editor.Autocomplete.completers', 'ssm/blocks-completer');
     },
-}
-
+};

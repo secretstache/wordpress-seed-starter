@@ -7,4 +7,4 @@ export const unsetVariations = () => {
                 unregisterBlockVariation('core/embed', embed.name);
             }
         });
-}
+};

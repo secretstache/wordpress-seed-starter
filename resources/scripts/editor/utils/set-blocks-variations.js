@@ -1,6 +1,6 @@
 import { getBlockVariations, unregisterBlockVariation } from '@wordpress/blocks';
 
-export const unsetVariations = () => {
+export const setBlocksVariations = () => {
     getBlockVariations('core/embed')
         ?.forEach((embed) => {
             if (embed.name !== 'youtube' && embed.name !== 'vimeo') {

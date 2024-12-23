@@ -22,7 +22,7 @@ import {
     blocksCompleterFilter,
     addBlockCategoriesFilter,
 } from '@scripts/editor/filters/index.js';
-import { unsetBlocks, unsetVariations, setBlocksStyles } from '@scripts/editor/utils/index.js';
+import { unsetBlocks, setBlocksVariations, setBlocksStyles } from '@scripts/editor/utils/index.js';
 
 const rootBlockName = 'ssm/section-wrapper';
 
@@ -31,7 +31,7 @@ addBlockCategoriesFilter();
 domReady(() => {
     unsetBlocks();
     setBlocksStyles();
-    unsetVariations();
+    setBlocksVariations();
 
     setRootBlockForPostTypes(
         rootBlockName,
@@ -39,7 +39,7 @@ domReady(() => {
         () => {
             unsetBlocks();
             setBlocksStyles();
-            unsetVariations();
+            setBlocksVariations();
         },
         [
             rootBlockVisibilityFilter,

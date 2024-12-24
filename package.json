@@ -10,7 +10,7 @@
   "type": "module",
   "scripts": {
     "dev": "bud dev --dashboard --hot --no-browserslist-update",
-    "build": "bud build --dashboard",
+    "build": "bud build --dashboard --no-browserslist-update",
     "lint": "npm-run-all lint:js lint:css",
     "lint:js": "eslint resources/scripts/*/*.js",
     "lint:css": "npx stylelint resources/styles/*/*.css",

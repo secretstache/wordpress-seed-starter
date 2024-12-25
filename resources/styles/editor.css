@@ -62,3 +62,23 @@
 .block-editor-block-list__block .block-list-appender {
     @apply z-[999];
 }
+
+.editor-styles-wrapper .site-header--editor {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100% !important;
+    z-index: 21;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        background: transparent;
+    }
+
+    .menu__item a {
+        text-decoration: none !important;
+    }
+}

@@ -2,7 +2,7 @@
 
     <li class="menu__item flex items-center gap-x-1{!! !empty( $item->children ) ? ' relative menu-item-has-children' : '' !!}{!! $item->classes ? ' ' . $item->classes : '' !!}">
 
-        <a target="{!! $item->target ?: '_self' !!}" class="text-sm uppercase leading-6 text-gray-900 hover:text-primary-600 transition-colors duration-300" href="{!! $item->url !!}">{!! $item->label !!}</a>
+        <a target="{!! $item->target ?: '_self' !!}" class="text-sm uppercase leading-6 text-gray-900 hover:text-primary-600 transition-colors duration-300 no-underline" href="{!! $item->url !!}">{!! $item->label !!}</a>
 
         @if ( !empty( $item->children ) )
 
@@ -35,7 +35,7 @@
                                                     <a class="transition ease-in-out text-sm text-gray-900 hover:text-primary-500" target="{!! $subchild->target ?: '_self' !!}" href="{!! $subchild->url !!}">
 
                                                         <p class="menu__item-title">{!! $subchild->label !!}</p>
-                    
+
                                                     </a>
 
                                                 </li>

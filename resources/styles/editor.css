@@ -1,13 +1,14 @@
 @charset "utf-8";
 
+@import "@secretstache/wordpress-gutenberg/build/styles.css";
+
 @import "vendor.css";
 @import "common/config.css";
 @import "common/splide.css";
 @import "common/default-margins.css";
 @import "common/editor-typography.css";
 @import "common/gravity.css";
-
-@import "@secretstache/wordpress-gutenberg/build/styles.css";
+@import "global/site-header.editor.css";
 
 /* Core */
 @import "blocks/buttons.css";
@@ -35,50 +36,20 @@
 @tailwind components;
 @tailwind utilities;
 
-.is-root-container {
-    @apply overflow-hidden font-sans;
+.editor-styles-wrapper {
+    .block-editor-block-list__layout.is-root-container {
+        @apply overflow-hidden font-sans;
+
+        p {
+            @apply leading-6;
+        }
+    }
 }
 
-/* TODO: refactor  */
-.editor-styles-wrapper a:where(:not(.wp-element-button)).ssm-cta-button {
-    text-decoration: none !important;
-    color: #fff;
-}
-
-/* TODO: refactor */
-.components-h-stack>.components-checkbox-control {
+.components-h-stack > .components-checkbox-control {
    @apply mb-0;
-}
-
-:where(.editor-styles-wrapper) p {
-    @apply leading-6;
-}
-
-/* TODO: refactor */
-.editor-styles-wrapper .block-editor-block-list__layout a:where(:not(.wp-element-button)):not(.blog-feed__item) {
-    @apply text-primary-500 underline hover:no-underline transition ease-in-out;
 }
 
 .block-editor-block-list__block .block-list-appender {
     @apply z-[999];
-}
-
-.editor-styles-wrapper .site-header--editor {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 100% !important;
-    z-index: 21;
-
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        z-index: 10;
-        background: transparent;
-    }
-
-    .menu__item a {
-        text-decoration: none !important;
-    }
 }

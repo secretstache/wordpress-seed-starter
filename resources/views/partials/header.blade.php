@@ -1,4 +1,13 @@
-<header class="site-header bg-white shadow-lg border-b border-solid border-gray-200 w-full z-[1045]">
+@php
+    /**
+    * @var $is_editor bool
+    */
+@endphp
+
+<header @class([
+    'site-header bg-white shadow-lg border-b border-solid border-gray-200 w-full z-[1045]',
+    'site-header--editor' => $is_editor,
+])>
 
 	<nav class="container flex items-center justify-between py-4" aria-label="Global">
 

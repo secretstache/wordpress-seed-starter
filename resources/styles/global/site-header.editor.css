@@ -1,0 +1,15 @@
+.site-header--editor {
+    @apply relative mx-auto w-full max-w-full;
+    z-index: 21;
+
+    &::after {
+        content: '';
+        @apply absolute inset-0 z-10 bg-transparent;
+    }
+}
+
+
+/* Hide for patterns */
+.wp-site-blocks .site-header--editor {
+    @apply hidden;
+}

@@ -15,11 +15,8 @@ class SectionWrapper extends Block
     private const MEDIA_TYPE_VIDEO = 'video';
     private const MEDIA_TYPE_ANIMATION = 'animation';
 
-    protected function prepareData(array $data): array
+    protected function prepareData($attributes, $content): array
     {
-        $attributes = $data['attributes'];
-        $content = $data['content'];
-
         $spacingClasses = $this->getSpacingClasses($attributes);
         $backgroundColorClass = $this->getColorClass($attributes, 'backgroundColor');
         $overlayColorClass = ($attributes['isIncludeOverlay'] ?? false) ? $this->getColorClass($attributes, 'overlayColor') : '';
@@ -33,7 +30,8 @@ class SectionWrapper extends Block
                 $backgroundColorClass,
                 $fullViewportHeightClass,
                 $spacingClasses,
-            ]))
+            ])),
+            'id' => $attributes['anchor'] ?? '',
         ]);
 
         return [

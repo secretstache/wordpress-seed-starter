@@ -5,13 +5,14 @@ use App\View\Composers\SSM;
 
 class Testimonials extends Block
 {
-    protected function prepareData(array $data): array
+    protected function prepareData($attributes, $content): array
     {
-        $query              = $data['attributes']['queryType'] ?? 'latest';
-        $number_posts       = isset($data['attributes']['numberOfPosts']) && $query == 'latest' ? $data['attributes']['numberOfPosts'] : -1;
-        $columns_per_row    = $data['attributes']['columnsPerRow'] ?? 3;
-        $layout             = $data['attributes']['layoutType'] ?? 'grid';
-        $splide_color       = $data['attributes']['carouselColor']['slug'] ?? false;
+        $query              = $attributes['queryType'] ?? 'latest';
+        $number_posts       = isset($attributes['numberOfPosts']) && $query == 'latest' ? $attributes['numberOfPosts'] : -1;
+        $columns_per_row    = $attributes['columnsPerRow'] ?? 3;
+        $layout             = $attributes['layoutType'] ?? 'grid';
+        $curated_posts      = $attributes['curatedPosts'] ?? [];
+        $splide_color       = $attributes['carouselColor']['slug'] ?? false;
 
         $columns_classname = 'grid-cols-1';
         $columns_classname .= $columns_per_row > 1 ? ' sm:grid-cols-2' : '';
@@ -22,7 +23,7 @@ class Testimonials extends Block
             'data_source'       => 'testimonial',
             'query'             => $query,
             'number_posts'      => $number_posts,
-            'curated_posts'     => $data['attributes']['curatedPosts'] ?? [],
+            'curated_posts'     => $curated_posts,
             'prefix'            => 'ssm'
         ]);
 

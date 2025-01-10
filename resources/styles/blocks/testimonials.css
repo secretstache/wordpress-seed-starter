@@ -1,6 +1,5 @@
 .wp-block-ssm-testimonials .splide__pagination {
     @apply
-        hidden
         xl:flex
         absolute
         top-1/2

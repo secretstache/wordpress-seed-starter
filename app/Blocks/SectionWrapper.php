@@ -68,9 +68,9 @@ class SectionWrapper extends Block
     }
 
     private function getColorClass(array $attributes, string $colorKey): string {
-        return $attributes[$colorKey]['value'] ?? false
+        return $attributes[$colorKey]['slug'] ?? false
             ? 'bg-' . $attributes[$colorKey]['slug']
-            : 'bg-white';
+            : '';
     }
 
     private function getFullViewportClass(array $attributes): string {

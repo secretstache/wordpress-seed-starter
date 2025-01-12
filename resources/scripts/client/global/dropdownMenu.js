@@ -2,7 +2,9 @@ const DropdownMenu = () => {
     const menus = document.querySelectorAll('.is-dropdown');
 
     menus.forEach((menu) => {
-        new Dropdown(menu);
+        new Dropdown(menu, {
+            topLevelClickable: true,
+        });
     });
 };
 
@@ -12,6 +14,7 @@ class Dropdown {
         this.openIndex = null;
         this.useArrowKeys = options?.useArrowKeys || true;
         this.withArrowButton = options?.withArrowButton || false;
+        this.topLevelClickable = options?.topLevelClickable || false;
         this.topLevelNodes = [...this.rootNode.children];
         this.topLevelButtons = [];
         this.submenus = [];
@@ -61,10 +64,18 @@ class Dropdown {
             node.addEventListener('mouseout', () => {
                 this.toggleExpand(index, false);
             });
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-            });
-            button.addEventListener('keydown', this.onButtonKeyDown.bind(this, index));
+
+            if (this.topLevelClickable) {
+                button.addEventListener('focus', () => {
+                    this.toggleExpand(index, true);
+                });
+            } else {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                });
+                button.addEventListener('keydown', this.onButtonKeyDown.bind(this, index));
+            }
+            
             submenu.addEventListener('keydown', this.onMenuKeyDown.bind(this, index));
         }
     }

@@ -24,31 +24,21 @@ class Team {
 			])
 
 			->addText('team_first_name', [
-				'label'     => 'First Name',
+				'label'     	=> 'First Name',
 				'wrapper'       => [
                     'width'     => 50
                 ]
 			])
 
 			->addText('team_last_name', [
-				'label'     => 'Last Name',
+				'label'     	=> 'Last Name',
 				'wrapper'       => [
                     'width'     => 50
                 ]
 			])
 
             ->addText('team_job_title', [
-				'label'     => 'Job Title',
-				'wrapper'       => [
-                    'width'     => 50
-                ]
-			])
-
-			->addText('team_division_location', [
-				'label'     => 'Division / Location',
-				'wrapper'       => [
-                    'width'     => 50
-                ]
+				'label'     	=> 'Job Title',
 			])
 
 			->addWysiwyg('team_bio', [

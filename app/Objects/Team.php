@@ -61,19 +61,17 @@ add_filter( 'manage_ssm_team_posts_columns', function( $columns ) {
 /**
  * Allow sorting by first/last name
  */
+add_filter('rest_ssm_team_collection_params', function ($query_params) {
+   $query_params['orderby']['enum'][] = 'meta_value';
 
-//add_filter('rest_ssm_team_collection_params', function ($query_params) {
-//    // Add meta_value as an allowed option for orderby
-//    $query_params['orderby']['enum'][] = 'meta_value';
-//
-//    return $query_params;
-//} );
-//
-//add_filter('rest_ssm_team_query', function ($args, $request) {
-//    if (isset($request['orderby']) && isset($request['meta_key']) && $request['orderby'] === 'meta_value') {
-//        $args['orderby'] = 'meta_value';
-//        $args['meta_key'] = sanitize_text_field($request['meta_key']);
-//    }
-//
-//    return $args;
-//}, 10, 2);
+   return $query_params;
+} );
+
+add_filter('rest_ssm_team_query', function ($args, $request) {
+   if (isset($request['orderby']) && isset($request['meta_key']) && $request['orderby'] === 'meta_value') {
+       $args['orderby'] = 'meta_value';
+       $args['meta_key'] = sanitize_text_field($request['meta_key']);
+   }
+
+   return $args;
+}, 10, 2);

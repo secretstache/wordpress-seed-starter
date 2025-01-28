@@ -54,7 +54,7 @@ export const edit = ({ attributes, setAttributes }) => {
         postType: POST_TYPE.TEAM,
         curatedPostsIds: isQueryTypeCurated && curatedPosts?.map((post) => post.value),
         numberOfPosts: isQueryTypeAll ? numberOfPosts : -1,
-        extraQueryArgs: isQueryTypeAll ? { orderby: 'title', order: 'asc' } : {},
+        extraQueryArgs: isQueryTypeAll ? { order: 'asc', orderby: 'meta_value', meta_key: 'team_last_name' } : {},
     }, [ queryType, curatedPosts, numberOfPosts ]);
 
     const blockProps = useBlockProps();
@@ -146,14 +146,6 @@ export const edit = ({ attributes, setAttributes }) => {
                                                         member?.acf?.team_job_title && (
                                                             <div className="text-base leading-7 text-gray-600">
                                                                 {decodeHtmlEntities(member?.acf?.team_job_title)}
-                                                            </div>
-                                                        )
-                                                    }
-
-                                                    {
-                                                        member?.acf?.team_division_location && (
-                                                            <div className="text-sm leading-7 text-gray-600 mt-3">
-                                                                {decodeHtmlEntities(member?.acf?.team_division_location)}
                                                             </div>
                                                         )
                                                     }

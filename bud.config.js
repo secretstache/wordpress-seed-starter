@@ -1,5 +1,6 @@
 export default async (app) => {
     app.eslint
+        .extends(['@roots/eslint-config'])
         .setFailOnError(true)
         .setFailOnWarning(false);
 

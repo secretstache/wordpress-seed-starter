@@ -123,6 +123,8 @@ export const edit = ({ name: blockName, attributes, setAttributes, clientId }) =
                         attributeName="backgroundColor"
                         setAttributes={setAttributes}
                         allowedColors={['white', 'gray-300', 'primary-500', 'secondary-500', 'tertiary-500']}
+                        disableCustomColors={false}
+                        enableAlpha={true}
                     />
 
                     <Divider margin={2} />

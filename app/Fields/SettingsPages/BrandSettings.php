@@ -216,24 +216,20 @@ class BrandSettings {
 
 			->addRepeater('footer_menus', [
 				'label'         => 'Menu Columns',
+				'instructions'  => 'Edit or add new menus <a target="_blank" href="' . admin_url('nav-menus.php') . '">here.</a>',
 				'layout'		=> 'block',
 				'min'			=> 1,
 				'max'			=> 5,
 				'button_label'	=> 'Add Column',
 			])
 
-				->addField('nav_menu', 'acfe_menus', [
+				->addField('menu_id', 'get_nav', [
 					'label' 		=> 'Select a Menu',
 					'field_type'	=> 'select',
 					'allow_null'	=> 1
 				])
 
 			->endRepeater()
-
-			->addField('menus_edit_message', 'message', [
-				'label'     => false,
-				'message'   => 'Edit or add new menus <a target="_blank" href="'. admin_url('nav-menus.php') .'">here.</a>',
-			])
 
 			->addWysiwyg('footer_copyright', [
 				'label'			=> 'Copyright',

@@ -30,7 +30,7 @@
 
                                             @foreach ($child->children as $subchild)
 
-                                                <li>
+                                                <li {!! !empty( $subchild->classes ) ? 'class="'. $subchild->classes .'"' : '' !!}>
 
                                                     <a class="transition ease-in-out text-sm text-gray-900 hover:text-primary-500" target="{!! $subchild->target ?: '_self' !!}" href="{!! $subchild->url !!}">
 

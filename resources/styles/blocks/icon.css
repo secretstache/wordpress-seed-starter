@@ -1,0 +1,14 @@
+.wp-block-ssm-icon.alignleft {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+.wp-block-ssm-icon.alignright {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+.wp-block-ssm-icon.aligncenter {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
